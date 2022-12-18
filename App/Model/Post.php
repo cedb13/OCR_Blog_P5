@@ -19,7 +19,11 @@ class Post extends Table{
    /* on fait d'abord un 'preprare' de la requête sql pour éviter les injections */
    public static function getOne(){
     $id= $_GET['id'];
-    return App::getDb()->prepare('SELECT * FROM posts WHERE idpost = ?', [$id], get_called_class());
+    return App::getDb()->prepare('SELECT idpost, title, caption, content_post, last_name, first_name, date_last_upload, idAdministrationUser 
+    FROM posts 
+    LEFT JOIN administration_user 
+        ON idAdministrationUser = administration_user_idAdministrationUser 
+        WHERE idpost = ?', [$id], get_called_class());
    }
 
     public function getUrl(){

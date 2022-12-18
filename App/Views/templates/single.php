@@ -9,9 +9,9 @@ foreach($post as $value)
                     <h1><?= $value->title; ?></h1>
                     <h2 class="subheading"><?= $value->caption; ?></h2>
                     <span class="meta">
-                        Posted by
-                        <a href="#!">Start Bootstrap</a>
-                        <?= $value->date_last_upload; ?>
+                        Posté par
+                        <a href="#!"><?= $value->first_name; ?> <?= $value->last_name; ?></a>
+                        le <?= $value->date_last_upload; ?>
                     </span>
                 </div>
             </div>

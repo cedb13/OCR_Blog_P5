@@ -44,8 +44,10 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
               <br><br />
-              <p>Si vous voulez en savoir plus mon cv est à votre disposition : </p>
-              <embed src="assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
+              <div id="cv">
+                <p>Si vous voulez en savoir plus, mon cv est à votre disposition : </p>
+                <embed src="assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
+              </div>
               <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="http://localhost/blogCedP5/public/index.php?page=posts">articles</a></p>
               <br />
               <p>Si vous voulez me contacter pour plus d'informations ou encore mieux participer à ce blog alors ça ce passe en dessous.<br/>
