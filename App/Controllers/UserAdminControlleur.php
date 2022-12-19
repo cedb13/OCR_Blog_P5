@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\Controller as Controller;
 
-class HomeController extends Controller{
+class UserAdminController extends Controller{
 
     public function show(){
         $contents['cv']= array ('nom'=>'Bonche', 'prenom'=>'Cedric');
