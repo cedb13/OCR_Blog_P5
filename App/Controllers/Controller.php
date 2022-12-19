@@ -11,7 +11,11 @@ abstract class Controller{
 
     public function __construct(){
 
+<<<<<<< HEAD
         $this->viewPath = '/App/views/templates';
+=======
+        $this->viewPath = '/App/Views/templates';
+>>>>>>> Feature-issue-4-homepage
     }
 
   protected function loadModel($model_name){

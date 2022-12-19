@@ -2,7 +2,11 @@
 namespace App\Lib;
 
 use App\Lib\Database;
+<<<<<<< HEAD
 use App\Model\Table;
+=======
+
+>>>>>>> Feature-issue-4-homepage
 
 class App{
 
