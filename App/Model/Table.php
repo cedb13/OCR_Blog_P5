@@ -1,10 +1,8 @@
 <?php
 namespace App\Model;
 
-<<<<<<< HEAD
-=======
+
 use App\Lib\App;
->>>>>>> Feature-issue-4-homepage
 
 class Table{
 
