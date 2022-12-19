@@ -38,7 +38,7 @@ class Table{
             ",  get_called_class());
     }
 
-    public function __get($key) //fonction magic pour trouver un élément, dans notre cas par exple cela sert à récupérer 'url', 'getUrl'...
+    public function __get($key) //fonction magic pour trouver un élément, exemple : quand on nomme notre fonction 'getUrl'cela nous évite de reprendre toute la fonction associé à get pour récupérer l'élément "url"...
     {
         $method = 'get' . ucfirst($key);
         $this->$key = $this->$method();
