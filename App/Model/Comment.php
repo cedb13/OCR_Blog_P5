@@ -10,11 +10,6 @@ class Comment extends Table{
     
     protected static $table = 'comments';
     //pour récupérer les derniers commentaires par post
-    /*public static function getLastComment(){
-        $id= $_GET['id'];
-        return App::getDb()->prepare('SELECT * FROM comments WHERE post_idpost = ?', [$id], get_called_class());
-
-    }*/
     public static function getLastComment(){
         $id= $_GET['id'];
         return App::getDb()->prepare('SELECT idcomment, comments.title, content_comment, last_name, first_name, date_publication, posts.idpost as post 

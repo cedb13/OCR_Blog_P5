@@ -10,7 +10,7 @@ foreach($post as $value)
                     <h2 class="subheading"><?= $value->caption; ?></h2>
                     <span class="meta">
                         Posté par
-                        <a href="#!"><?= $value->first_name; ?> <?= $value->last_name; ?></a>
+                        <a href="#"><?= $value->first_name; ?> <?= $value->last_name; ?></a>
                         le <?= $value->date_last_upload; ?>
                     </span>
                 </div>

@@ -26,6 +26,12 @@ class Post extends Table{
         WHERE idpost = ?', [$id], get_called_class());
    }
 
+   public static function getLastSingle(){
+    $idpost= $_GET['id'];
+    return App::getDb()->query('SELECT idpost
+    FROM posts 
+        WHERE date_last_upload = MAX(date_last_upload) ', [$idpost], get_called_class());
+   }
     public function getUrl(){
         return 'index.php?page=post&id=' . $this->idpost;
     }
