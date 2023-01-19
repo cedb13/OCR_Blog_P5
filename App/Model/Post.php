@@ -26,6 +26,8 @@ class Post extends Table{
         WHERE idpost = ?', [$id], get_called_class());
    }
 
+
+    
     public function getUrl(){
         return 'index.php?page=post&id=' . $this->idpost;
     }

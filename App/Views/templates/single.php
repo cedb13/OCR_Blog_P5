@@ -10,7 +10,7 @@ foreach($post as $value)
                     <h2 class="subheading"><?= $value->caption; ?></h2>
                     <span class="meta">
                         Posté par
-                        <a href="#!"><?= $value->first_name; ?> <?= $value->last_name; ?></a>
+                        <a href="#"><?= $value->first_name; ?> <?= $value->last_name; ?></a>
                         le <?= $value->date_last_upload; ?>
                     </span>
                 </div>
@@ -37,7 +37,7 @@ foreach($post as $value)
         <h1 id="comment">Les commentaires :</h1>       
 
                         <?php 
-                        foreach($comments as $comment)
+                        foreach($comments as $comment):
                         ?>
 
                         <h2>"<?= $comment->title; ?>"</h2>
@@ -49,6 +49,8 @@ foreach($post as $value)
                         <p><em>Commentaire fait le :  <?= $comment->date_publication; ?></em></p>
 
                         <hr ALIGN="center" >
+
+                        <?php endforeach; ?>
 
                     </div>
                 </div>

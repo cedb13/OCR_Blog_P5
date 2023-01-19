@@ -15,12 +15,12 @@
       </div>
   </header>
   <main class="container mb-4">
-  <h4 class="fst-italic"> Bonjour <?= $cv['nom'].' '.$cv['prenom']; ?> </h4>
-
-
-  <div class="container p-4 p-md-5 mb-4 rounded text-bg-dark">
+            <?php if(!empty($log)): ?>
+            <h4 class="fst-italic"><?= $message ?></h4>
+            <?php endif ?>
+    <div class="container p-4 p-md-5 mb-4 rounded text-bg-dark">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-      <h1 class="col-md-10 col-lg-8 col-xl-7 display-6 fst-italic">Bienvenue sur le Blog Dev de Cédric</h1>
+      <h1 class="col-md-10 col-lg-8 col-xl-7 display-6 fst-italic">Bienvenue sur le Blog Dev de <?= $cv['prenom'].' '.$cv['nom']; ?></h1>
       <p class="col-md-10 col-lg-8 col-xl-7 lead my-3">Ce site à pour objet de vous présenter mon expérience mais aussi de partager des articles écrits par des contributeurs issus des métier de l'informatique</p>
       <p class="col-md-10 col-lg-8 col-xl-7 lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
     </div>
@@ -84,7 +84,7 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post" action="">
                                 <div class="form-floating">
                                     <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                     <label for="name">Name</label>
