@@ -3,21 +3,37 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller as Controller;
-use App\Model\Post;
-use App\Model\Comment;
+use App\Models\Post;
+use App\Models\Comment;
+use App\Models\Model;
+use App\Lib\PostService;
 
 class PostController extends Controller{
 
 
     public function show(){
+
     
-        $posts['posts'] = Post::getLast();
-        $contents['post'] = Post::getOne();
-        $comments['comments'] = Comment::getLastComment();
+        $posts['posts'] = $this->postService->getAllPost();
+        //echo '<pre>';
+        //var_dump($_POST);
+        //echo '</pre>';
+        //die;
+        $contents['post'] = $this->postService->getUserByPost();
+        $comments['comments'] = Comment::getCommentByPost();
         $this->setContents($posts);
         $this->setContents($contents);
         $this->setContents($comments);
         $this->render('single');
+
+    }
+
+    public function list(){
+        
+
+        $contents['posts'] = $this->postService->getAllPost();
+        $this->setContents($contents);
+        $this->render('posts');
 
     }
     

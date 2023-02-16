@@ -3,21 +3,25 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller as Controller;
-use App\Model\UserAdmin;
-use App\Model\Post;
+use App\Models\Post;
+use App\Models\Model;
+use App\Models\User;
+use App\Lib\UserService;
+use App\Lib\PostService;
 
 class HomeController extends Controller{
 
     public function show(){
-        
-        $posts['posts'] = Post::getLast();
+
+        //$posts['posts'] = $this->postService->getAllPost();
         $contents['cv']= array ('nom'=>'Bonche', 'prenom'=>'Cédric');
-        $log['log'] = UserAdmin::login();
-        $message['message'] = UserAdmin::logMessage();
-        $this->setContents($posts);
+        //$this->setContents($posts);
         $this->setContents($contents);
-        $this->setContents($log);
-        $this->setContents($message);
         $this->render('home');
+    }
+
+
+    public function notFound(){
+        $this->render('notFound');
     }
 }

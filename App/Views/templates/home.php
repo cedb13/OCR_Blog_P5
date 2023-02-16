@@ -1,23 +1,23 @@
-
- <!-- Page Header-->
- <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/home-bg.jpg')">
       <div class="container position-relative px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 justify-content-center">
               <div class="col-md-10 col-lg-8 col-xl-7">
                   <div class="site-heading">
                       <h1>Le blog Dev de Cédric</h1>
+                      
                       <span class="subheading">A Blog Theme by Start Bootstrap</span>
                       <!-- Avatar -->
-                      <img class="subheading profile-avatar" src="../public/assets/img/Cedric_Bonche.jpg" alt="Avatar de Cédric Bonche">
+                      <img class="subheading profile-avatar" src="http://localhost/OCR_Blog_P5/public/assets/img/Cedric_Bonche.jpg" alt="Avatar de Cédric Bonche">
                   </div>
               </div>
           </div>
       </div>
   </header>
   <main class="container mb-4">
-            <?php if(!empty($log)): ?>
-            <h4 class="fst-italic"><?= $message ?></h4>
-            <?php endif ?>
+            <?php if(isset($_SESSION['auth']) && $_SESSION['auth']=== true):?>
+            <h4 class="fst-italic">Hello</h4>
+            <?php endif; ?>
     <div class="container p-4 p-md-5 mb-4 rounded text-bg-dark">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <h1 class="col-md-10 col-lg-8 col-xl-7 display-6 fst-italic">Bienvenue sur le Blog Dev de <?= $cv['prenom'].' '.$cv['nom']; ?></h1>
@@ -25,7 +25,7 @@
       <p class="col-md-10 col-lg-8 col-xl-7 lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
     </div>
   </div>
-  <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
+  <header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/about-bg.jpg')">
       <div class="container position-relative px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 justify-content-center">
               <div class="col-md-10 col-lg-8 col-xl-7">
@@ -46,9 +46,9 @@
               <br><br />
               <div id="cv">
                 <p>Si vous voulez en savoir plus, mon cv est à votre disposition : </p>
-                <embed src="assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
+                <embed src="http://localhost/OCR_Blog_P5/public/assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
               </div>
-              <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="http://localhost/blogCedP5/public/index.php?page=posts">articles</a></p>
+              <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="http://localhost/OCR_Blog_P5/public/index.php/post">articles</a></p>
               <br />
               <p>Si vous voulez me contacter pour plus d'informations ou encore mieux participer à ce blog alors ça ce passe en dessous.<br/>
                 Oui! juste après la grosse image qui est là juste pour faire <a href="#contact">joli </a>... </p>
@@ -57,7 +57,7 @@
   </div>
 
   <!-- Page Header-->
-  <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+  <header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/contact-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -91,10 +91,10 @@
                                     <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
-                                    <label for="email">Email address</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                    <input class="form-control" id="mail" type="mail" placeholder="Enter your mail..." data-sb-validations="required,mail" />
+                                    <label for="mail">mail address</label>
+                                    <div class="invalid-feedback" data-sb-feedback="mail:required">An mail is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="mail:mail">mail is not valid.</div>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="" />
@@ -116,7 +116,7 @@
                                         <div class="fw-bolder">Form submission successful!</div>
                                         Rejoindre l'accueil, c'est par ici --->
                                         <br />
-                                        <a href="http://localhost/blogCedP5/public/index.php?page=home">merci de vous intéressez à notre blog</a>
+                                        <a href="http://localhost/OCR_Blog_P5/public/index.php/home">merci de vous intéressez à notre blog</a>
                                     </div>
                                 </div>
                                 <!-- Submit error message-->
@@ -128,8 +128,8 @@
                                 <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Send</button>
                             </form>
                             <?php
-                                if (isset($_POST['message'])) {
-                                    $retour = mail('cedric.bonch@gmail.com', 'Envoi depuis le formulaire de Contact', $_POST['message'], 'From:cedric.bonche@gmail.com' . "\r\n" . 'Reply-to: ' . $_POST['email']);
+                                if(isset($_POST['message'])) {
+                                    $retour = mail('cedric.bonch@gmail.com', 'Envoi depuis le formulaire de Contact', $_POST['message'], 'From:cedric.bonche@gmail.com' . "\r\n" . 'Reply-to: ' . $_POST['mail']);
                                     if($retour)
                                         echo '<p>Votre message a bien été envoyé.</p>';
                                 }

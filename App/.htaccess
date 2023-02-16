@@ -1,2 +1,2 @@
 REwriteEngine on
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?page=$1
+#RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?page=$1
