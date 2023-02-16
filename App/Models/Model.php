@@ -1,22 +1,31 @@
 <?php
-namespace App\Model;
+namespace App\Models;
 
-use App\Lib\App;
+use App\Lib\Database;
 
-class Table{
+class Model{
 
     protected static $table;
+    protected static $title = 'Mon CV en ligne';
+    protected static $_instance;
+
+    public static function getinstance(){
+        if(is_null(self::$_instance)){
+            self::$_instance = new Model();
+        }
+        return self::$_instance;
+    }
 
     private static function getTable(){
         if(static::$table === null){
             $class_name = explode('\\', get_called_class());
-            static::$table =strtolower(end($class_name)) . 's';
+            static::$table =strtolower(end($class_name));
         }
         return static::$table;
     }
 
     public static function find($id){
-        return  App::getDb()->prepare("
+        return  Database::getDb()->prepare("
         SELECT * 
         FROM " . static::$table . "
         WHERE id = ?
@@ -25,14 +34,14 @@ class Table{
 
     public static function query($statement, $attributes = null, $one = false){
         if($attributes){
-            return App::getDb()->prepare($statement, $attributes, get_called_class(), $one);
+            return Database::getDb()->prepare($statement, $attributes, get_called_class(), $one);
         } else {
-            return App::getDb()->query($statement, get_called_class(), $one);
+            return Database::getDb()->query($statement, get_called_class(), $one);
         }
     }
 
     public static function all(){
-        return App::getDb()->query("
+        return Database::getDb()->query("
             SELECT * 
             FROM " . static::$table . "
             ",  get_called_class());
@@ -44,4 +53,13 @@ class Table{
         $this->$key = $this->$method();
         return $this->$key;
     }
+
+    public static function getTitle(){
+        return self::$title;
+    }
+
+    public static function setTitle($title){
+        self::$title = $title . '|' . self::$title;
+    }
+
 }
