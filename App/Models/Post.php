@@ -29,12 +29,12 @@ class Post extends Model{
         $this->date_last_upload = $date_last_upload;
     }
 
-    public function getIdPost(){
+    public function getId(){
         return $this->idpost;
     }
     
-    public function setIdPost($idpost){
-        $this->idpost = $idpost;
+    public function setId($id){
+        $this->idpost = $id;
     }
     
     public function getUrl(){
@@ -58,6 +58,4 @@ class Post extends Model{
         $date = $this->date_last_upload;
         return $date;
     }
-
-
 }

@@ -13,11 +13,6 @@ $prefix = "/OCR_Blog_P5/public/index.php";
 $uri = $_SERVER['REQUEST_URI'];
 $url = str_replace($prefix, '',$uri );
 
-/* if(isset($_SESSION)){
-    echo "<pre>";
-    var_dump($_SESSION);
-    echo "</pre>";
- }*/
 $pageController = 'HomeController';
 if ( $url === '/' || $url === '/home'){
     $pageController = 'HomeController';
@@ -38,24 +33,7 @@ if ( $url === '/' || $url === '/home'){
     $action = 'notFound';
 }
 
-/*echo "<pre>";
-var_dump($prefix);
-echo "</pre>";
-die();
-
-$page='home';
-$action='show';
-
-if(isset($_GET['page'])){
-    $page = $_GET['page'];
-}
-
-if(isset($_GET['action'])){
-    $action = $_GET['action'];
-}*/
-
 $nameController="App\Controllers\\".$pageController;
-
 
 $controller = new $nameController;
 $controller->$action();

@@ -15,10 +15,6 @@ class PostController extends Controller{
 
     
         $posts['posts'] = $this->postService->getAllPost();
-        //echo '<pre>';
-        //var_dump($_POST);
-        //echo '</pre>';
-        //die;
         $contents['post'] = $this->postService->getUserByPost();
         $comments['comments'] = Comment::getCommentByPost();
         $this->setContents($posts);

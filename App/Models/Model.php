@@ -54,11 +54,6 @@ class Model{
         return $this->$key;
     }
 
-    /*public static function notFound(){
-        header("HTTP/1.0 404 Not Found");
-        header('Location:index.php?page=404');
-    }*/
-
     public static function getTitle(){
         return self::$title;
     }

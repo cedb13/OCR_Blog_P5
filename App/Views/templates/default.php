@@ -6,7 +6,7 @@
         <meta name="description" content="Blog CV mais aussi qui parle du développement informatique" />
         <meta name="author" content="" />
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
-        <title><?= App\Controllers\Controller::displayTitle(); ?></title>
+        <title>Mon CV en ligne</title>
         <!-- Favicons -->
         <link rel="icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
@@ -40,7 +40,7 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php/home/#contactForm">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php/home#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -68,7 +68,11 @@
                                                 <input type="password" class="form-control"  name="password" required>
                                             </div>
                                             <button type="submit" class="btn btn-light mt-3" name="submit" value="1">LOGIN</button>
-                                            <p>Not a member? <a href="http://localhost/OCR_Blog_P5/public/index.php?page=home/#contactForm">Contact us</a></p>
+                                            <p>Not a member?  
+                                                <button type="submit" class="btn bg-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                    <a href="http://localhost/OCR_Blog_P5/public/index.php/home#contact">Contact us</a>
+                                                </button>
+                                            </p>
                                         </form>
                                         <?php endif; ?>
                                     </div>
