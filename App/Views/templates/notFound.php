@@ -6,7 +6,7 @@
         <meta name="description" content="Blog CV mais aussi qui parle du développement informatique" />
         <meta name="author" content="" />
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
-        <title><?= App\Controllers\Controller::displayTitle(); ?></title>
+        <title>CV</title>
         <!-- Favicons -->
         <link rel="icon" type="image/x-icon" href="<?= $publicDirUrl; ?>/assets/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="<?= $publicDirUrl; ?>/assets/favicon.ico" />

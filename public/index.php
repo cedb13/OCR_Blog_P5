@@ -29,6 +29,7 @@ if ( $url === '/' || $url === '/home'){
 } else if ($url === '/post') {
     $pageController = 'PostController';
     $action = 'list';
+   
 } else{
     $action = 'notFound';
 }

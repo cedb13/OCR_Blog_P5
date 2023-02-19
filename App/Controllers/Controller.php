@@ -4,9 +4,11 @@ namespace App\Controllers;
 use App\Models\Model;
 use App\Lib\UserService;
 use App\Lib\PostService;
+use App\Lib\CommentService;
 
 class Controller{
 
+    public $commentService;
     public $postService;
     public $userService;
     protected $viewPath;
@@ -17,6 +19,7 @@ class Controller{
         session_start();
         $this->userService = new UserService;
         $this->postService = new PostService;
+        $this->commentService = new CommentService;
         $this->viewPath = '/App/Views/templates';
     }
 

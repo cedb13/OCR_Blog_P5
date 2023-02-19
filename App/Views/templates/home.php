@@ -15,9 +15,9 @@
       </div>
   </header>
   <main class="container mb-4">
-            <?php if(isset($_SESSION['auth']) && $_SESSION['auth']=== true):?>
-            <h4 class="fst-italic">Hello</h4>
-            <?php endif; ?>
+    <?php if(isset($_SESSION['auth']) && $_SESSION['auth']=== true):?>
+        <h4 class="fst-italic">Hello <?= $_SESSION['user']; ?></h4>
+    <?php endif; ?>
     <div class="container p-4 p-md-5 mb-4 rounded text-bg-dark">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <h1 class="col-md-10 col-lg-8 col-xl-7 display-6 fst-italic">Bienvenue sur le Blog Dev de <?= $cv['prenom'].' '.$cv['nom']; ?></h1>

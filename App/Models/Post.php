@@ -36,9 +36,18 @@ class Post extends Model{
     public function setId($id){
         $this->idpost = $id;
     }
+
+    
+    public function getTitle(){
+        return $this->title;
+    }
+
+    public function setTitle($title){
+        $this->title = $title;
+    }
     
     public function getUrl(){
-        return 'index.php/post&id=' . $this->idpost;
+        return 'http://localhost/OCR_Blog_P5/public/index.php/post/' . $this->idpost;
     }
 
     public function getCaption(){

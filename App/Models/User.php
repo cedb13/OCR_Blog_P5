@@ -47,5 +47,9 @@ class User extends Model {
         return $firstName;
     }
 
+    public function __toString(){
+        return $this->getLastName() . ' '. $this->getFirstName();
+     }
+
 
 }

@@ -15,9 +15,12 @@ class LoginController extends Controller{
             $user= $this->userService->getUserByCredential($mail, $password);
             if ($user) {
                 $_SESSION['auth'] = true;
+                $_SESSION['auth_Error'] = false;
                 $_SESSION['user'] = $user;
             } else {
-               $_SESSION['auth'] = false;
+                $_SESSION['auth_Error'] = true;
+                $_SESSION['auth'] = false;
+
             }
         }
 

@@ -1,7 +1,7 @@
 <?php
 foreach($post as $value)
 ?>
-<header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/post-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -32,7 +32,7 @@ foreach($post as $value)
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-        <a href="#comment"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>
+        <a href="#comment"><img class="img-fluid" src="http://localhost/OCR_Blog_P5/public/assets/img/post-sample-image.jpg" alt="..." /></a>
         <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
         <h1 id="comment">Les commentaires :</h1>       
 
@@ -44,9 +44,9 @@ foreach($post as $value)
 
                         <p><em>De <?= $comment->last_name; ?> <?= $comment->first_name; ?></em></p>
 
-                        <p><?= $comment->content_comment; ?></p>
+                        <p><?= $comment->content; ?></p>
 
-                        <p><em>Commentaire fait le :  <?= $comment->date_publication; ?></em></p>
+                        <p><em>Commentaire fait le :  <?= $comment->date; ?></em></p>
 
                         <hr ALIGN="center" >
 

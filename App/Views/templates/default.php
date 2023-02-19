@@ -8,12 +8,8 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
         <title>Mon CV en ligne</title>
         <!-- Favicons -->
-<<<<<<< HEAD
-        <link rel="icon" type="image/x-icon" href="../public/assets/favicon.ico" />
-=======
         <link rel="icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
->>>>>>> main
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -26,7 +22,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://localhost/OCR_Blog_P5/public/index.php/home/#cv">Curriculum Vitae</a>
+                <a class="navbar-brand" href="http://localhost/OCR_Blog_P5/public/index.php/home#cv">Curriculum Vitae</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -40,7 +36,7 @@
                                 <?php 
                                 foreach($posts as $post):
                                 ?>
-                                <li><a class="dropdown-item" href="<?= $post->getUrl()?>"><?= $post->getTitle(); ?></a></li>
+                                <li><a class="dropdown-item" href="<?= $post->url?>"><?= $post->title; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>

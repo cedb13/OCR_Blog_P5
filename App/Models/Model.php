@@ -6,7 +6,6 @@ use App\Lib\Database;
 class Model{
 
     protected static $table;
-    protected static $title = 'Mon CV en ligne';
     protected static $_instance;
 
     public static function getinstance(){
@@ -32,13 +31,13 @@ class Model{
         ", [$id], get_called_class(), true);
     }
 
-    public static function query($statement, $attributes = null, $one = false){
+    /*public static function query($statement, $attributes = null, $one = false){
         if($attributes){
             return Database::getDb()->prepare($statement, $attributes, get_called_class(), $one);
         } else {
             return Database::getDb()->query($statement, get_called_class(), $one);
         }
-    }
+    }*/
 
     public static function all(){
         return Database::getDb()->query("
@@ -52,14 +51,6 @@ class Model{
         $method = 'get' . ucfirst($key);
         $this->$key = $this->$method();
         return $this->$key;
-    }
-
-    public static function getTitle(){
-        return self::$title;
-    }
-
-    public static function setTitle($title){
-        self::$title = $title . '|' . self::$title;
     }
 
 }
