@@ -8,13 +8,8 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
         <title>Mon CV en ligne</title>
         <!-- Favicons -->
-<<<<<<< HEAD
-        <link rel="icon" type="image/x-icon" href="../public/assets/favicon.ico" />
-        <link rel="shortcut icon" type="image/x-icon" href="../public/assets/favicon.ico" />
-=======
         <link rel="icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
->>>>>>> main
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -34,30 +29,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-<<<<<<< HEAD
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=posts">consulter nos posts</a></li>
-                        <li class="nav-item dropdown"><a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sample Post</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <?php $posts = App\Model\Post::getLast();
-=======
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php/home">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php/post">consulter nos posts</a></li>
                         <li class="nav-item dropdown"><a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Last Posts</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <?php 
->>>>>>> main
                                 foreach($posts as $post):
                                 ?>
                                 <li><a class="dropdown-item" href="<?= $post->url?>"><?= $post->title; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-<<<<<<< HEAD
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home/#contactForm">Contact</a></li>
-=======
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php/home#contact">Contact</a></li>
->>>>>>> main
                     </ul>
                 </div>
                 <div>
