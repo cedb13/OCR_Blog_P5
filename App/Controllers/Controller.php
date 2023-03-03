@@ -3,14 +3,16 @@ namespace App\Controllers;
 
 use App\Models\Model;
 use App\Lib\UserService;
+use App\Lib\RegisterService;
 use App\Lib\PostService;
 use App\Lib\CommentService;
 
 class Controller{
 
-    public $commentService;
-    public $postService;
     public $userService;
+    public $registerService;
+    public $postService;
+    public $commentService;
     protected $viewPath;
     protected $template = 'default';
     public $contents = array();
@@ -18,6 +20,7 @@ class Controller{
     public function __construct(){
         session_start();
         $this->userService = new UserService;
+        $this->registerService = new RegisterService;
         $this->postService = new PostService;
         $this->commentService = new CommentService;
         $this->viewPath = '/App/Views/templates';

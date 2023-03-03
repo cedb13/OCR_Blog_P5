@@ -31,14 +31,6 @@ class Model{
         ", [$id], get_called_class(), true);
     }
 
-    /*public static function query($statement, $attributes = null, $one = false){
-        if($attributes){
-            return Database::getDb()->prepare($statement, $attributes, get_called_class(), $one);
-        } else {
-            return Database::getDb()->query($statement, get_called_class(), $one);
-        }
-    }*/
-
     public static function all(){
         return Database::getDb()->query("
             SELECT * 

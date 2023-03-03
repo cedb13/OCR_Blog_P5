@@ -12,13 +12,13 @@ class User extends Model {
     public $idUser;
     public $last_name;
     public $first_name;
-    public $mail;
+    public $email;
 
-    public function __construct($idUser=null, $last_name=null, $first_name=null, $mail=null){
+    public function __construct($idUser=null, $last_name=null, $first_name=null, $email=null){
         $this->idUser = $idUser;
         $this->last_name = $last_name;
         $this->first_name = $first_name;
-        $this->mail = $mail;
+        $this->email = $email;
     }
 
     public function getId(){
@@ -29,12 +29,12 @@ class User extends Model {
         $this->idUser = $id;
     }
 
-    public function getMail(){
-        return $this->mail;
+    public function getEmail(){
+        return $this->email;
     }
 
-    public function setMail($mail){
-        $this->mail=$mail;
+    public function setEmail($email){
+        $this->email=$email;
     }
 
     public function getLastName(){

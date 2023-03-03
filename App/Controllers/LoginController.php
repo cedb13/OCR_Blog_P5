@@ -9,10 +9,10 @@ class LoginController extends Controller{
    
 
     public function login() {
-        if (isset($_POST['mail']) && isset($_POST['password'])) {
-            $mail = $_POST['mail'];
-            $password = htmlspecialchars($_POST['password']);
-            $user= $this->userService->getUserByCredential($mail, $password);
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $email = $_POST['email'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $user= $this->userService->getUserByCredential($email, $password);
             if ($user) {
                 $_SESSION['auth'] = true;
                 $_SESSION['auth_Error'] = false;
@@ -24,7 +24,7 @@ class LoginController extends Controller{
             }
         }
 
-        header('Location:http://localhost/OCR_Blog_P5/public/index.php/home');
+        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=register');
     }
 
     protected function userIsConnected():bool {
@@ -36,8 +36,10 @@ class LoginController extends Controller{
 
      public function logout(){
             
-            session_destroy();
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php/home');
+        $_SESSION = array(); // on vide les variables de session    
+        session_destroy();
+        header('Location:http://localhost/OCR_Blog_P5/public/index.php/home');
      }   
+
 
 }

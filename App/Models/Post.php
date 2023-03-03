@@ -47,7 +47,7 @@ class Post extends Model{
     }
     
     public function getUrl(){
-        return 'http://localhost/OCR_Blog_P5/public/index.php/post/' . $this->idpost;
+        return 'index.php?page=post&id=' . $this->idpost;
     }
 
     public function getCaption(){

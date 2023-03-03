@@ -77,10 +77,10 @@ foreach($post as $value)
                             <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="mail" type="mail" placeholder="Enter your mail..." data-sb-validations="required,mail" />
-                            <label for="mail">mail address</label>
-                            <div class="invalid-feedback" data-sb-feedback="mail:required">An mail is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="mail:mail">mail is not valid.</div>
+                            <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+                            <label for="email">email address</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">email is not valid.</div>
                         </div>
                         <div class="form-floating">
                             <textarea class="form-control" id="content_omment" type="textarea" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
