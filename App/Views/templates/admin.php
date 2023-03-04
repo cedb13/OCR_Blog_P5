@@ -6,7 +6,7 @@
                 <div class="site-heading">
                     <h1>Interface d'administration</h1>
                     <h2> C'est ici que ça se passe</h2>
-                    <span class="subheading"><?= $messages['message1'] ?></span>
+                    <span class="subheading"><?= $adminMessages['message1'] ?></span>
                 </div>
             </div>
         </div>

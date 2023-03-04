@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Lib\UserService;
 use App\Lib\PostService;
 
-class HomeController extends Controller{
+class AdminController extends Controller{
 
     public function show(){
 
@@ -21,5 +21,3 @@ class HomeController extends Controller{
         $this->render('admin');
     }
 }
-
-// /123#Undeuxtrois

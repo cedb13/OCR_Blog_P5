@@ -40,9 +40,16 @@ class RegisterController extends Controller{
             $_SESSION['auth'] = true;
             $_SESSION['auth_Error'] = false;
             $_SESSION['user'] = $user;
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
+
+            
+            
         }
-        
-        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=register');
+        else{
+
+            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=register');
+
+        }
+
+        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
     }
 }
