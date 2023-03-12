@@ -22,7 +22,7 @@
                             <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('Submitted.'); return true;">
                             <div class="error-msg" id="error-msg"></div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="lastName" name="last_name" type="text" placeholder="Entrer votre nom..." required="required" required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="lastName" name="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
                                     <span name="last_name_empty"></span>
                                     <br>
@@ -35,23 +35,16 @@
                                     <span name="first_name"></span>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." value="" required/>
-                                    <label for="email">Email address<span class="required error" id="email-info"></span></label>
-                                    <span name="email_empty"></span>
-                                    <span name="email"></span>
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required/>
+                                    <label for="email">Email address</label>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="signup-password" name="password" type="password" placeholder="Entrer un mot de pass..." required="required" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" value="" list="passwords_pattern1_datalist"/>
-                                    <label for="password">Password<span class="required error" id="signup-password-info"></span></label>
+                                    <label for="password">Password</label>
                                     <span name="password_empty"></span>
                                     <span name="password"></span>
                                 </div>
                                 <br />
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Erreur d'envoi de l'enregistrement!</div></div>
                                 <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase " id="submitButton" name="submit" type="submit" value="enregistrer">Enregistrer</button>
                             </form>

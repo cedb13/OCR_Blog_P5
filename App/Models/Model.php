@@ -1,12 +1,17 @@
 <?php
 namespace App\Models;
 
-use App\Lib\Database;
+use App\Lib\Database as Db ;
 
 class Model{
 
     protected static $table;
     protected static $_instance;
+
+    public function __construct(){
+        $db = $this->db;
+        $this->db = new Db;
+    }
 
     public static function getinstance(){
         if(is_null(self::$_instance)){
@@ -24,7 +29,7 @@ class Model{
     }
 
     public static function find($id){
-        return  Database::getDb()->prepare("
+        return  Database::$db->getPDO()->prepare("
         SELECT * 
         FROM " . static::$table . "
         WHERE id = ?
@@ -32,7 +37,7 @@ class Model{
     }
 
     public static function all(){
-        return Database::getDb()->query("
+        return Database::$db->getPDO()->query("
             SELECT * 
             FROM " . static::$table . "
             ",  get_called_class());

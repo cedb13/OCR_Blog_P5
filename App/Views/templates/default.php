@@ -42,7 +42,8 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home#contact">Contact</a></li>
-                        <?php if(isset($_SESSION['auth']) && $_SESSION['auth']=== true):?>
+                        <?php if($this->userIsConnected()== true):?>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=admin">Administration</a></li>
                     </ul>
                 </div>
                 <div>

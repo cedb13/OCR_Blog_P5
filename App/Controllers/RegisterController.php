@@ -32,16 +32,16 @@ class RegisterController extends Controller{
 
         $messages['messages']= array ('message1'=>"vous êtes bien enregistré", 'message2'=>"Vous n'êtes pas enregistré", 'message3'=>"il semblerait que vous avez déjà un compte!");
 
-        if(isset($_POST) && $this->userService->getUserByCredential($email, $password) == false && !$this->userService->isEmailExists($email)) {
+        if(isset($_POST) && $this->userService->getUserByCredential($email, $password) == false && !$this->userService->isEmailExists($email))
+        {
              //insertion du résultat
             $register=$this->userService->insertUser($lastName, $firstName, $email, $password);
             $user= $this->userService->getUserByCredential($email, $password);
 
+
             $_SESSION['auth'] = true;
             $_SESSION['auth_Error'] = false;
             $_SESSION['user'] = $user;
-
-            
             
         }
         else{
@@ -52,4 +52,5 @@ class RegisterController extends Controller{
 
         header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
     }
+
 }

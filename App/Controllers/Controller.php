@@ -47,4 +47,12 @@ class Controller{
             require(ROOT.$this->viewPath .DIRECTORY_SEPARATOR.$this->template.'.php');
         }
     }
+
+    protected function userIsConnected():bool {
+        if (isset($_SESSION['auth'])){
+              return true;
+        }
+            return false;   
+     }
+
 }

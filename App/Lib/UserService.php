@@ -10,13 +10,29 @@ class UserService{
 
     private $db;
     public const PASSWORD_MIN_LEN = '8';
-    public const USER_MIN_KEY = ['last_name','first_name', 'email', 'password', 'passwordConfirm'];
+    public const USER_MIN_KEY = ['last_name','first_name', 'email', 'password'];
 
     public function __construct(){
         $this->db = new Db;
     }
 
-    public function getUserByCredential($email, $password) {
+    public function getInfoUser(){
+        if(isset($_SESSION['user'])){
+            $idUser= $_SESSION['user']->idUser;
+            $results = [];
+            $query = $this->db->getPDO()->prepare("SELECT idUser, last_name, first_name, email FROM user WHERE idUser='$idUser'");
+            $query->execute();
+            $query=$query->fetchall();
+            foreach($query as $data){
+                $user= new User($data['idUser'], $data['last_name'], $data['first_name'], $data['email']);
+                array_push($results, $user);
+            }
+            return $results;
+        }
+       
+   }
+
+    public function getUserByCredential($email, $password){
         $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' AND password = '$password'");
         $result->execute();
         $result=$result->fetch();
@@ -67,29 +83,13 @@ class UserService{
         
 
     /**
-     * registration status message
+     * insert database user
      *
      * @param string $lastName  
      * @param string $firstName
      * @param string $email 
-     * 
+     * @param string $password
      */
-    public function registerStatus($lastName, $firstName, $email){
-        $isUsernameExists = $this->isUsernameExists($lastName, $firstName);
-        $isEmailExists = $this->isEmailExists($email);
-        if ($isUsernameExists) {
-            $response = array(
-                "status" => "error",
-                "message" => "Vos nom et prénom existe déjà."
-            );
-        } else if ($isEmailExists) {
-            $response = array(
-                "status" => "error",
-                "message" => "votre email existe déjà."
-            );
-        } 
-    }
-
 
    public function insertUser($lastName, $firstName, $email, $password){
 
@@ -101,5 +101,22 @@ class UserService{
         $newId = $this->db->getPDO()->lastInsertId();
 
     }
+
+    /**
+     * update user database
+     * 
+     */
+    public function updateUser($column, $value){
+       /* $idUser= $_SESSION['user']->idUser;
+        foreach($column as $value){
+            $query = "UPDATE user  SET '$column'='$value' WHERE idUser='$idUser' ";
+            $sth = $this->db->getPDO()->prepare($query);
+            $sth->execute();
+            $sth=$sth->fetch();
+        }*/
+
+    }
+
+
 
 }

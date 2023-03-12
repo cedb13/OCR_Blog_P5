@@ -34,4 +34,15 @@ class CommentService{
         return $results;
    }
 
+   public function addComment(){
+
+    $query = "INSERT INTO comments (last_name, first_name, email, title, content_comment, date_publication, validate) VALUES ('$lastName','$firstName','$email','$password')";
+    $sth = $this->db->getPDO()->prepare($query);
+    $sth->execute();
+    $sth=$sth->fetch();
+
+    $newId = $this->db->getPDO()->lastInsertId();
+
+   }
+
 }

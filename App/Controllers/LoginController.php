@@ -27,12 +27,6 @@ class LoginController extends Controller{
         header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=register');
     }
 
-    protected function userIsConnected():bool {
-        if (isset($_SESSION['auth'])){
-              return true;
-        }
-            return false;   
-     }
 
      public function logout(){
             

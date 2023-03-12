@@ -21,12 +21,12 @@ class User extends Model {
         $this->email = $email;
     }
 
-    public function getId(){
+    public function getIdUser(){
         return $this->idUser;
     }
 
-    public function setId($id){
-        $this->idUser = $id;
+    public function setIdUser($idUser){
+        $this->idUser = $idUser;
     }
 
     public function getEmail(){
@@ -38,13 +38,13 @@ class User extends Model {
     }
 
     public function getLastName(){
-        $lastName = $this->last_name;
-        return $lastName;
+        $last_name = $this->last_name;
+        return $last_name;
     }
 
     public function getFirstName(){
-        $firstName = $this->first_name;
-        return $firstName;
+        $first_name = $this->first_name;
+        return $first_name;
     }
 
     public function __toString(){
