@@ -12,39 +12,39 @@ class User extends Model {
     public $idUser;
     public $last_name;
     public $first_name;
-    public $mail;
+    public $email;
 
-    public function __construct($idUser=null, $last_name=null, $first_name=null, $mail=null){
+    public function __construct($idUser=null, $last_name=null, $first_name=null, $email=null){
         $this->idUser = $idUser;
         $this->last_name = $last_name;
         $this->first_name = $first_name;
-        $this->mail = $mail;
+        $this->email = $email;
     }
 
-    public function getId(){
+    public function getIdUser(){
         return $this->idUser;
     }
 
-    public function setId($id){
-        $this->idUser = $id;
+    public function setIdUser($idUser){
+        $this->idUser = $idUser;
     }
 
-    public function getMail(){
-        return $this->mail;
+    public function getEmail(){
+        return $this->email;
     }
 
-    public function setMail($mail){
-        $this->mail=$mail;
+    public function setEmail($email){
+        $this->email=$email;
     }
 
     public function getLastName(){
-        $lastName = $this->last_name;
-        return $lastName;
+        $last_name = $this->last_name;
+        return $last_name;
     }
 
     public function getFirstName(){
-        $firstName = $this->first_name;
-        return $firstName;
+        $first_name = $this->first_name;
+        return $first_name;
     }
 
     public function __toString(){

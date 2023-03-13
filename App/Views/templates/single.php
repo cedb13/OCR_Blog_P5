@@ -61,53 +61,37 @@ foreach($post as $value)
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <h4 id="comment">Yes! comment it's here</h4>
-                <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+                <p>Si vous voulez laisser un commentaire, remplissez les champs requis et cliquer sur envoyer! </p>
                 <div class="my-5">
                     <!-- * * * * * * * * * * * * * * *-->
-                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * SB Forms Comment Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
-                    <!-- To make this form functional, sign up at-->
-                    <!-- https://startbootstrap.com/solution/contact-forms-->
-                    <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <form id="commenttForm" action="" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
                         <div class="form-floating">
-                            <input class="form-control" id="nave_user_idNaveUser" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                            <label for="name">Name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            <input class="form-control" id="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
+                            <label for="name">Nom</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="mail" type="mail" placeholder="Enter your mail..." data-sb-validations="required,mail" />
-                            <label for="mail">mail address</label>
-                            <div class="invalid-feedback" data-sb-feedback="mail:required">An mail is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="mail:mail">mail is not valid.</div>
+                            <input class="form-control" id="first_name" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
+                            <label for="name">Prénom</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="content_omment" type="textarea" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                            <input class="form-control" id="email" type="email" placeholder="Entrer votre email..." value="" required />
+                            <label for="email">email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="title" type="title" placeholder="Entrer un titre..." required="required"  value="" maxlength="80" />
+                            <label for="name">Titre</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="content_omment" type="textarea" placeholder="Entrer votre message ici..." style="height: 12rem" required="required" spellcheck maxlength="600"></textarea>
                             <label for="message">Commentaire</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                         </div>
                         <br />
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                         <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Send</button>
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit" value="envoyer">envoyer</button>
                     </form>
+                    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
                 </div>
             </div>
         </div>

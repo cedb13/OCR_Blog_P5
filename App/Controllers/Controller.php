@@ -8,9 +8,9 @@ use App\Lib\CommentService;
 
 class Controller{
 
-    public $commentService;
-    public $postService;
     public $userService;
+    public $postService;
+    public $commentService;
     protected $viewPath;
     protected $template = 'default';
     public $contents = array();
@@ -47,4 +47,12 @@ class Controller{
             require(ROOT.$this->viewPath .DIRECTORY_SEPARATOR.$this->template.'.php');
         }
     }
+
+    protected function userIsConnected():bool {
+        if (isset($_SESSION['auth']) ){
+              return true;
+        }
+            return false;   
+     }
+
 }

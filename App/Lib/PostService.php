@@ -30,13 +30,13 @@ class PostService{
    //pour récupérer un post, le nom et prénom de l'auteur du post
    /* on fait d'abord un 'preprare' de la requête sql pour éviter les injections */
    public function getUserByPost(){
-        $i = basename(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH));
+        $id= $_GET['id'];
         $results = [];
         $query = $this->db->getPDO()->prepare("SELECT idpost, title, caption, content_post, last_name, first_name, date_last_upload, idUser 
         FROM post 
         LEFT JOIN user 
             ON idUser = user_idUser
-            WHERE idpost = '$i'");
+            WHERE idpost = '$id'");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){

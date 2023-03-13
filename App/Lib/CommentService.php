@@ -18,13 +18,13 @@ class CommentService{
    //pour récupérer les commentaires par post, les noms et prénoms de chaque auteur de chaque commentaire
    /* on fait d'abord un 'preprare' de la requête sql pour éviter les injections */
    public function getCommentByPost(){
-        $i = basename(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH));
+        $id= $_GET['id'];
         $results = [];
         $query = $this->db->getPDO()->prepare("SELECT idcomment, comment.title, content_comment, comment.last_name, comment.first_name, date_publication, post_idpost, validate, post.idpost 
         FROM comment 
         LEFT JOIN post
             ON idpost = post_idpost
-            WHERE validate = 1 AND post_idpost = '$i'");
+            WHERE validate = 1 AND post_idpost = '$id'");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
@@ -32,6 +32,17 @@ class CommentService{
             array_push($results, $comment);
         }
         return $results;
+   }
+
+   public function addComment(){
+
+    $query = "INSERT INTO comments (last_name, first_name, email, title, content_comment, date_publication, validate) VALUES ('$lastName','$firstName','$email','$title','$content_comment')";
+    $sth = $this->db->getPDO()->prepare($query);
+    $sth->execute();
+    $sth=$sth->fetch();
+
+    $newId = $this->db->getPDO()->lastInsertId();
+
    }
 
 }

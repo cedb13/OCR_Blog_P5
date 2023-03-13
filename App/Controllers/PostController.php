@@ -32,5 +32,9 @@ class PostController extends Controller{
         $this->setContents($contents);
         $this->render('posts');
     }
+
+    public function insertComment(){
+        
+    }
     
 }

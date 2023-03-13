@@ -48,7 +48,7 @@
                 <p>Si vous voulez en savoir plus, mon cv est à votre disposition : </p>
                 <embed src="http://localhost/OCR_Blog_P5/public/assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
               </div>
-              <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="http://localhost/OCR_Blog_P5/public/index.php/post">articles</a></p>
+              <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">articles</a></p>
               <br />
               <p>Si vous voulez me contacter pour plus d'informations ou encore mieux participer à ce blog alors ça ce passe en dessous.<br/>
                 Oui! juste après la grosse image qui est là juste pour faire <a href="#contact">joli </a>... </p>
@@ -75,7 +75,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                       <h4 id="contact">Yes contact it's here</h4>
-                        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+                        <p>Vous voulez me contacter ? Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais !</p>
                         <div class="my-5">
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
@@ -84,17 +84,17 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post" action="">
+                            <form id="contactForm" data-sb-form-api-token="test" method="post" action="">
                                 <div class="form-floating">
                                     <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                     <label for="name">Name</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="mail" type="mail" placeholder="Enter your mail..." data-sb-validations="required,mail" />
-                                    <label for="mail">mail address</label>
-                                    <div class="invalid-feedback" data-sb-feedback="mail:required">An mail is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="mail:mail">mail is not valid.</div>
+                                    <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,mail" />
+                                    <label for="email">email address</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">email is not valid.</div>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="" />
@@ -116,7 +116,7 @@
                                         <div class="fw-bolder">Form submission successful!</div>
                                         Rejoindre l'accueil, c'est par ici --->
                                         <br />
-                                        <a href="http://localhost/OCR_Blog_P5/public/index.php/home">merci de vous intéressez à notre blog</a>
+                                        <a href="http://localhost/OCR_Blog_P5/public/index.php?page=home">merci de vous intéressez à notre blog</a>
                                     </div>
                                 </div>
                                 <!-- Submit error message-->
@@ -125,11 +125,11 @@
                                 <!-- an error submitting the form-->
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                                 <!-- Submit Button-->
-                                <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Send</button>
+                                <input class="btn btn-primary text-uppercase submit" id="submitButton" name="send" type="submit" value= "Envoyer">
                             </form>
                             <?php
                                 if(isset($_POST['message'])) {
-                                    $retour = mail('cedric.bonch@gmail.com', 'Envoi depuis le formulaire de Contact', $_POST['message'], 'From:cedric.bonche@gmail.com' . "\r\n" . 'Reply-to: ' . $_POST['mail']);
+                                    $retour = mail('cedric.bonch@gmail.com', 'Envoi depuis le formulaire de Contact', $_POST['message'], 'From:cedric.bonche@gmail.com' . "\r\n" . 'Reply-to: ' . $_POST['email']);
                                     if($retour)
                                         echo '<p>Votre message a bien été envoyé.</p>';
                                 }
