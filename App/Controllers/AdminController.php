@@ -12,11 +12,8 @@ use App\Lib\PostService;
 class AdminController extends Controller{
 
     public function show(){
-
-
         
         
-
         $posts['posts'] = $this->postService->getAllPost();
         $userInfo['userInfo'] = $this->userService->getInfoUser();
         $adminMessages['adminMessages']= array ('message1'=>"Bienvenu sur votre interface d'administration", 'message2'=>"Cliquer ici pour modifier vos informations personnels", 'message3'=>"Modifier/Ajouter/Supprimer un post", 'message4'=>"Valider/Supprimer un commentaire");
