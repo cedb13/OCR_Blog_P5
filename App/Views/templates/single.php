@@ -49,9 +49,7 @@ foreach($post as $value)
                         <p><em>Commentaire fait le :  <?= $comment->date; ?></em></p>
 
                         <hr ALIGN="center" >
-
                         <?php endforeach; ?>
-
                     </div>
                 </div>
             </div>
@@ -66,25 +64,28 @@ foreach($post as $value)
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Comment Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
-                    <form id="commenttForm" action="" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
+                    <form id="commentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=registerComment" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
                         <div class="form-floating">
-                            <input class="form-control" id="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
+                            <input type="hidden" class="form-control" id="idpost" name="idpost" type="text" placeholder="Entrer votre nom..." required="required" pattern="^{1,15}$" value="<?= $value->idpost; ?>" list="names_pattern3_datalist" />
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
                             <label for="name">Nom</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="first_name" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
+                            <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
                             <label for="name">Prénom</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="email" type="email" placeholder="Entrer votre email..." value="" required />
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required />
                             <label for="email">email</label>
                         </div>
                         <div class="form-floating">
-                            <input class="form-control" id="title" type="title" placeholder="Entrer un titre..." required="required"  value="" maxlength="80" />
+                            <input class="form-control" id="title" name="title" type="title" placeholder="Entrer un titre..." required="required"  value="" maxlength="80" />
                             <label for="name">Titre</label>
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" id="content_omment" type="textarea" placeholder="Entrer votre message ici..." style="height: 12rem" required="required" spellcheck maxlength="600"></textarea>
+                            <textarea class="form-control" id="content_comment" name="content_comment" type="textarea" placeholder="Entrer votre message ici..." style="height: 12rem" required="required" spellcheck maxlength="600"></textarea>
                             <label for="message">Commentaire</label>
                         </div>
                         <br />
@@ -97,3 +98,4 @@ foreach($post as $value)
         </div>
     </div>
 </div>
+

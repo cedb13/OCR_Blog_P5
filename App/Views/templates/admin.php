@@ -66,6 +66,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-10 col-lg-8 col-xl-5">
+                    <br></br>
+                    <h4>Modifier les posts</h4>
+                    </br>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-5">
+                    <br></br>
+                    <h4>Modifier les commentaires</h4>
+                    </br>
+                </div>
+            </div>
         </div>
     </div>
 </main>

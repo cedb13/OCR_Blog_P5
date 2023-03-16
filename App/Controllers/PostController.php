@@ -14,8 +14,10 @@ class PostController extends Controller{
 
     public function show(){
 
-    
-        $comments['comments'] = $this->commentService->getCommentByPost();
+        if($this->userIsConnected()!== true){
+            $comments['comments'] = $this->commentService->getCommentByPost();
+        }else{ $comments['comments'] = $this->commentService->getAllCommentByPost();}
+        
         $posts['posts'] = $this->postService->getAllPost();
         $contents['post'] = $this->postService->getUserByPost();
         $this->setContents($comments);
@@ -33,7 +35,24 @@ class PostController extends Controller{
         $this->render('posts');
     }
 
-    public function insertComment(){
+    public function registerComment(){
+
+        $comment = empty($comment);
+        //On récupère les données du formulaire
+        $idpost         = htmlspecialchars($_POST['idpost']);
+        $lastName		= htmlspecialchars(strip_tags($_POST['last_name']));
+        $firstName		= htmlspecialchars(strip_tags($_POST['first_name']));
+        $email_sanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $email			= filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
+        $title          = htmlspecialchars(strip_tags($_POST['title']));
+        $content        = htmlspecialchars(strip_tags($_POST['content_comment']));
+
+        if(isset($_POST)){
+             //insertion du résultat
+            $comment=$this->commentService->insertComment($lastName, $firstName, $email, $title, $content, $idpost);
+        }
+
+        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idpost);
         
     }
     

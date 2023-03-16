@@ -34,14 +34,30 @@ class CommentService{
         return $results;
    }
 
-   public function addComment(){
+   public function getAllCommentByPost(){
+        $id= $_GET['id'];
+        $results = [];
+        $query = $this->db->getPDO()->prepare("SELECT idcomment, comment.title, content_comment, comment.last_name, comment.first_name, date_publication, post_idpost, validate, post.idpost 
+        FROM comment 
+        LEFT JOIN post
+            ON idpost = post_idpost
+            WHERE post_idpost = '$id'");
+        $query->execute();
+        $query=$query->fetchall();
+        foreach($query as $data){
+            $comment= new Comment($data['idcomment'], $data['title'], $data['content_comment'], $data['last_name'], $data['first_name'], $data['date_publication'], $data['post_idpost'], $data['validate']);
+            array_push($results, $comment);
+        }
+        return $results;
+   }
 
-    $query = "INSERT INTO comments (last_name, first_name, email, title, content_comment, date_publication, validate) VALUES ('$lastName','$firstName','$email','$title','$content_comment')";
+
+   public function insertComment($lastName, $firstName, $email, $title, $content, $idpost){
+
+    $query = "INSERT INTO comment (last_name, first_name, email, title, content_comment, date_publication, post_idpost, validate) VALUES ('$lastName','$firstName','$email','$title','$content', '".date('Y-m-d')."', '$idpost', 0 )";
     $sth = $this->db->getPDO()->prepare($query);
     $sth->execute();
     $sth=$sth->fetch();
-
-    $newId = $this->db->getPDO()->lastInsertId();
 
    }
 
