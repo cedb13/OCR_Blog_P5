@@ -36,7 +36,7 @@ class CommentService{
 
    public function addComment(){
 
-    $query = "INSERT INTO comments (last_name, first_name, email, title, content_comment, date_publication, validate) VALUES ('$lastName','$firstName','$email','$password')";
+    $query = "INSERT INTO comments (last_name, first_name, email, title, content_comment, date_publication, validate) VALUES ('$lastName','$firstName','$email','$title','$content_comment')";
     $sth = $this->db->getPDO()->prepare($query);
     $sth->execute();
     $sth=$sth->fetch();

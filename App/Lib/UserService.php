@@ -17,6 +17,7 @@ class UserService{
     }
 
     public function getInfoUser(){
+
         if(isset($_SESSION['user'])){
             $idUser= $_SESSION['user']->idUser;
             $results = [];
@@ -33,14 +34,16 @@ class UserService{
    }
 
     public function getUserByCredential($email, $password){
+        $user=[];
         $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' AND password = '$password'");
         $result->execute();
         $result=$result->fetch();
         if($result){
             $user= new User($result['idUser'], $result['last_name'], $result['first_name'], $result['email']);
-            return $user;
+
         }
-        return false;
+
+        return $user;
     }
 
     /**
@@ -115,6 +118,12 @@ class UserService{
             $sth=$sth->fetch();
         }*/
 
+    }
+
+    public function getMessage(){
+        $errorMessage = 'Les informations envoyées ne permettent pas de vous identifier : <br>
+        cliquez ici pour retenter : <br>
+        <a href="http://localhost/OCR_Blog_P5/public/index.php?page=login" style="color:white;"> LOGIN </a>';
     }
 
 

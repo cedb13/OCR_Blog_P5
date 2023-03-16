@@ -21,12 +21,14 @@
                 </br>
             </div>
             <div>
-            <?php foreach($userInfo as $value): ?>
-                Nom : <?= $value->last_name; ?><br>
-                Prénom : <?= $value->first_name; ?><br>
-                Email : <?= $value->email; ?><br>
-                <div name='idUser' style='display:none'>id : <?= $value->idUser; ?></div>
-            <?php endforeach ?>
+            <?php if($this->userIsConnected()== true):?>
+                <?php foreach($userInfo as $value): ?>
+                    Nom : <?= $value->last_name; ?><br>
+                    Prénom : <?= $value->first_name; ?><br>
+                    Email : <?= $value->email; ?><br>
+                    <div name='idUser' style='display:none'>id : <?= $value->idUser; ?></div>
+                <?php endforeach ?>
+            <?php endif; ?>
             </div>
             <div>
                 <br></br>

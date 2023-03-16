@@ -49,7 +49,7 @@ class Controller{
     }
 
     protected function userIsConnected():bool {
-        if (isset($_SESSION['auth'])){
+        if (isset($_SESSION['user']) && $_SESSION['user']->idUser>0){
               return true;
         }
             return false;   

@@ -19,7 +19,7 @@
                 <h4 id="contact" class="signup-heading">Enregistrement</h4>
                     <p>Veuillez remplir tous les champs merci</p>
                         <div class="my-5">
-                            <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('Submitted.'); return true;">
+                            <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('Submitted.'); return true;" >
                             <div class="error-msg" id="error-msg"></div>
                                 <div class="form-floating">
                                     <input class="form-control" id="lastName" name="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
