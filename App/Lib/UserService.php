@@ -120,12 +120,4 @@ class UserService{
 
     }
 
-    public function getMessage(){
-        $errorMessage = 'Les informations envoyées ne permettent pas de vous identifier : <br>
-        cliquez ici pour retenter : <br>
-        <a href="http://localhost/OCR_Blog_P5/public/index.php?page=login" style="color:white;"> LOGIN </a>';
-    }
-
-
-
 }

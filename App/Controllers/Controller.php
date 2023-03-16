@@ -49,11 +49,8 @@ class Controller{
     }
 
     protected function userIsConnected():bool {
-<<<<<<< HEAD
-        if (isset($_SESSION['auth']) ){
-=======
+
         if (isset($_SESSION['user']) && $_SESSION['user']->idUser>0){
->>>>>>> Feature-issue-8-register_a_user_as_an_administration_user
               return true;
         }
             return false;   
