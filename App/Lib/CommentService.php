@@ -54,11 +54,33 @@ class CommentService{
 
    public function insertComment($lastName, $firstName, $email, $title, $content, $idpost){
 
-    $query = "INSERT INTO comment (last_name, first_name, email, title, content_comment, date_publication, post_idpost, validate) VALUES ('$lastName','$firstName','$email','$title','$content', '".date('Y-m-d')."', '$idpost', 0 )";
-    $sth = $this->db->getPDO()->prepare($query);
-    $sth->execute();
-    $sth=$sth->fetch();
+        $query = "INSERT INTO comment (last_name, first_name, email, title, content_comment, date_publication, post_idpost, validate) VALUES ('$lastName','$firstName','$email','$title','$content', '".date('Y-m-d')."', '$idpost', 0 )";
+        $sth = $this->db->getPDO()->prepare($query);
+        $sth->execute();
+        $sth=$sth->fetch();
 
    }
+
+   public function updateComment($validate, $idcomment){
+         $query = "UPDATE comment  SET validate='$validate' WHERE idcomment='$idcomment' ";
+         $sth = $this->db->getPDO()->prepare($query);
+         $sth->execute();
+         $sth=$sth->fetch();
+    }
+
+    public function deleteComment($idcomment){
+        $query = "DELETE FROM comment WHERE idcomment='$idcomment'";
+        $sth = $this->db->getPDO()->prepare($query);
+        $sth->execute();
+        $sth=$sth->fetch();
+    }
+
+    public function deleteAllCommentsByPost($idpost){
+        $query = "DELETE FROM comment WHERE post_idpost = '$idpost'";
+        $sth = $this->db->getPDO()->prepare($query);
+        $sth->execute();
+        $sth=$sth->fetch();
+    }
+
 
 }

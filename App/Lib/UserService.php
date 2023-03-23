@@ -109,14 +109,11 @@ class UserService{
      * update user database
      * 
      */
-    public function updateUser($column, $value){
-       /* $idUser= $_SESSION['user']->idUser;
-        foreach($column as $value){
-            $query = "UPDATE user  SET '$column'='$value' WHERE idUser='$idUser' ";
-            $sth = $this->db->getPDO()->prepare($query);
-            $sth->execute();
-            $sth=$sth->fetch();
-        }*/
+    public function updateUser($lastName, $firstName, $email, $password, $idUser){
+        $query = "UPDATE post  SET last_name='$lastName', first_name='$firstName', email='$email', password='$password' WHERE idpost='$idUser' ";
+        $sth = $this->db->getPDO()->prepare($query);
+        $sth->execute();
+        $sth=$sth->fetch();
 
     }
 

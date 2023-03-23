@@ -45,4 +45,28 @@ class PostService{
         }
         return $results;
    }
+
+   public function insertPost($idUser, $title, $caption, $contentPost){
+
+    $query = "INSERT INTO post (user_idUser, title, caption, content_post, date_last_upload) VALUES ('$idUser', '$title', '$caption', '$contentPost', '".date('Y-m-d')."' )";
+    $sth = $this->db->getPDO()->prepare($query);
+    $sth->execute();
+    $sth=$sth->fetch();
+
+    }
+
+    public function updatePost($idUser, $title, $caption, $contentPost, $idpost){
+        
+        $query = "UPDATE post  SET user_idUser='$idUser', title='$title', caption='$caption', content_post='$contentPost', date_last_upload=DATE( NOW() )  WHERE idpost='$idpost' ";
+        $sth = $this->db->getPDO()->prepare($query);
+        $sth->execute();
+        $sth=$sth->fetch();
+    }
+
+    public function deletePost($idpost){
+        $query = "DELETE FROM post WHERE idpost='$idpost'";
+        $sth = $this->db->getPDO()->prepare($query);
+        $sth->execute();
+        $sth=$sth->fetch();
+    }
 }

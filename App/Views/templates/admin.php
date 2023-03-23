@@ -13,70 +13,88 @@
     </div>
 </header>
 <!-- Main Content-->
-<main class="container mb-4">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <h4>Vos informations</h4>
-                </br>
-            </div>
-            <div>
-            <?php if($this->userIsConnected()== true):?>
-                <?php foreach($userInfo as $value): ?>
-                    Nom : <?= $value->last_name; ?><br>
-                    Prénom : <?= $value->first_name; ?><br>
-                    Email : <?= $value->email; ?><br>
-                    <div name='idUser' style='display:none'>id : <?= $value->idUser; ?></div>
-                <?php endforeach ?>
-            <?php endif; ?>
-            </div>
-            <div>
-                <br></br>
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalForm2">
-                <?= $adminMessages['message2']?>
-                </button>
-                    <div class="modal fade" id="ModalForm2" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body bg-dark">
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        <div class="myform bg-dark">
-                                            <form name="auth" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=admin&action=changeInfosUser">
-                                                <div class="mb-3 mt-4">    
-                                                    <label for="InputlastName" class="form-label">Nom</label>
-                                                    <input class="form-control" name="newLastName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
-                                                </div>
-                                                <div class="mb-3">    
-                                                    <label for="InputlastName" class="form-label">Prénom</label>
-                                                    <input class="form-control" name="newfirstName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="Inputemail" class="form-label">email address</label>
-                                                    <input type="email" class="form-control" name="newEmail"aria-describedby="emailHelp" value="">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="InputPassword" class="form-label">Password</label>
-                                                    <input type="password" class="form-control"  name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" value="" list="passwords_pattern1_datalist">
-                                                </div>
-                                                <button type="submit" class="btn btn-light mt-3" name="newSuubmit" value="1">CHANGE</button>
-                                            </form>
+ <main class="h100">
+ <!-- section -->
+     <section class="conteneur row">
+         <article class="text-center col-lg-4" data-sal="slide-right" data-sal-duration="1000">
+             <a class="nav-link" href="#btn-info">
+             <img class="rounded-circle" style="width: 50%" src="http://localhost/OCR_Blog_P5/public/assets/img/galerie-item-5-frisco.jpg"></a>
+                 <h3>Vos informations</h3>
+                     <a href="#btn-info" title="Modifier vos informations"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                     <div class="mb-4" style="text-align : left; padding-left: 20%;">
+                        <?php if($this->userIsConnected()== true):?>
+                            <?php foreach($userInfo as $value): ?>
+                        Nom : <?= $value->last_name; ?><br>
+                        Prénom : <?= $value->first_name; ?><br>
+                        Email : <?= $value->email; ?><br>
+                        <div name='idUser' style='display:none'>id : <?= $value->idUser; ?></div>
+                    </div>
+                    <div id="btn-info">
+                    <button type="button" class="btn btn-dark" style="width: 50%;" data-bs-toggle="modal" data-bs-target="#ModalForm2">
+                    <?= $adminMessages['message2']?>
+                    </button>
+                        <div class="modal fade" id="ModalForm2" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body bg-dark">
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="myform bg-dark">
+                                                <form name="auth" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser">
+                                                    <div class="mb-3 mt-4">    
+                                                        <label for="InputlastName" class="form-label">Nom</label>
+                                                        <input class="form-control" name="newLastName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->last_name; ?>" list="names_pattern3_datalist"/>
+                                                    </div>
+                                                    <div class="mb-3">    
+                                                        <label for="InputlastName" class="form-label">Prénom</label>
+                                                        <input class="form-control" name="newfirstName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->first_name; ?>" list="names_pattern3_datalist"/>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="Inputemail" class="form-label">email address</label>
+                                                        <input type="email" class="form-control" name="newEmail"aria-describedby="emailHelp" value="<?= $value->email; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="InputPassword" class="form-label">Entrer votre Password actuel si vous voulez le concerver ou entrer un nouveau Password</label>
+                                                        <input type="password" class="form-control"  name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" value="" list="passwords_pattern1_datalist">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-light mt-3" name="newSuubmit" value="1">CHANGE</button>
+                                                </form>
+                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-5">
+                    <?php endforeach ?>
+                    <?php endif; ?>
+         </article>
+         <article class="text-center col-lg-4" data-sal="slide-down" data-sal-duration="1000">
+             <a class="nav-link txt-color-2" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">
+             <img class="rounded-circle" style="width: 50%"  href="#btn-post" src="http://localhost/OCR_Blog_P5/public/assets/img/galerie-item-1-boston.jpg"></a>
+                 <h3>Ajouter-Modifier-Supprimer un post</h3>
+                    <a href="#btn-post" title="Ajouter-Modifier-Supprimer un post"><i class="fa fa-info-circle" aria-hidden="true"></i></a>                               
                     <br></br>
-                    <h4>Modifier les posts</h4>
-                    </br>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-5">
                     <br></br>
-                    <h4>Modifier les commentaires</h4>
-                    </br>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+                    <div id="btn-post">
+                    <a type="button" class="btn btn-dark" style="width: 50%;" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">
+                    C'est ici
+                    </a>
+         </article>
+         <article class="text-center col-lg-4" data-sal="slide-down" data-sal-duration="1000">
+             <a class="nav-link" href="#btn-comment">
+             <img class="rounded-circle" style="width: 50%"  href="#btn-comment" src="http://localhost/OCR_Blog_P5/public/assets/img/galerie-item-4.jpg"></a>
+                 <h3>valider-Supprimer un commentaire</h3>
+                    <a href="#btn-comment" title="Ajouter-Modifier-Supprimer un post"><i class="fa fa-info-circle" aria-hidden="true"></i></a>                               
+                    <br></br>
+                    <br></br>
+                    <div id="btn-comment">
+                    <a type="button" class="btn btn-dark" style="width: 50%;"class="nav-item dropdown nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Retrouver les commentaires par post</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <?php 
+                                foreach($posts as $post):
+                                ?>
+                                <li><a class="dropdown-item" href="<?= $post->url?>"><?= $post->title; ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+         </article>
+     </section>
+ </main>
