@@ -23,7 +23,7 @@ foreach($post as $value)
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7" style="text-align: center;">
-                        <p><?= $value->content_post; ?></p>
+                        <p style="white-space: pre-wrap; text-align : justify;"><?= $value->content_post; ?></p>
                     </div>
                 </div>
             </div>
@@ -47,6 +47,19 @@ foreach($post as $value)
                                         <input class="form-control" id="title" name="title" type="title"  value="<?=$value->title; ?>" maxlength="80" />
                                         <label for="name">Titre</label>
                                     </div>
+                                    
+                                    <div class="form-floating">
+                                        <div class="form-control" id="authorSelect" type="name"  value="" maxlength="80">
+                                            <select name="authorSelect">
+                                                <option value="">--Choisir un auteur merci--</option>
+                                                <?php foreach($users as $user): ?>
+                                                <option value="<?= $user->idUser?>"><?= $user->first_name.' '.$user->last_name; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <label for="statusSelect">Changer d'auteur</label>
+                                    </div>
+                                    
                                     <div class="form-floating">
                                         <input class="form-control" id="caption" name="caption" type="text" value="<?=$value->caption; ?>" spellcheck maxlength="180" />
                                         <label for="name">Phrase d'accroche</label>
@@ -77,7 +90,7 @@ foreach($post as $value)
                             <?php foreach($comments as $comment):?>
                             <h2>"<?= $comment->title; ?>"</h2>
                                 <p><em>De <?= $comment->last_name; ?> <?= $comment->first_name; ?></em></p>
-                                <p><?= $comment->content; ?></p>
+                                <p style="white-space: pre-wrap; text-align : justify;"><?= $comment->content; ?></p>
                                 <p><em>Commentaire fait le :  <?= $comment->date; ?></em></p>
                                 <?php if($this->userIsConnected()== true):?>
                                 <div style="padding: 15px; background-color: grey;border-radius: 30px;">

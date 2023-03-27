@@ -58,32 +58,32 @@
                         <p><?= $post->excerpt; ?> ...</p>
                         <p><a href="<?= $post->url?>">Voir la suite</a></p>
                         <?php if($this->userIsConnected()== true):?>
-                                <div style="padding: 15px; background-color: grey;border-radius: 30px;">
-                                    <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminPost">
-                                        <br></br>
-                                        <fieldset>
+                            <div style="padding: 15px; background-color: grey;border-radius: 30px;">
+                                <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminPost">
+                                    <br></br>
+                                    <fieldset>
                                         <legend>Que voulez-vous faire de cet article?</legend>
-                                        <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $post->idpost; ?>" list="names_pattern3_datalist" />
-                                        </div>
-                                        <div>
-                                        <label for="statusSelect">modifier ou supprimer l'article s'il vous plait:</label>
-                                        <br>
-                                        <select name="statusSelect">
-                                            <option value="">--Choisir une option merci--</option>
-                                            <option value="update">modifier</option>
-                                            <option value="delete">Supprimer</option>
-                                        </select>
-                                        </div>
-                                        <br>
-                                        <div>
-                                        <button class="btn btn-primary text-uppercase " name="statusComment"  type="submit">envoyer</button>
-                                        </div>
-                                        </fieldset>
-                                    </form>
+                                            <div class="form-floating">
+                                                <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $post->idpost; ?>" list="names_pattern3_datalist" />
+                                            </div>
+                                            <div>
+                                                <label for="statusSelect">modifier ou supprimer l'article s'il vous plait:</label>
+                                                <br>
+                                                <select name="statusSelect">
+                                                    <option value="">--Choisir une option merci--</option>
+                                                    <option value="update">modifier</option>
+                                                    <option value="delete">Supprimer</option>
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div>
+                                                <button class="btn btn-primary text-uppercase " name="statusComment"  type="submit">envoyer</button>
+                                            </div>
+                                    </fieldset>
+                                </form>
                                 </div>
-                                <?php endif; ?>
-                            <hr ALIGN="center" >
+                        <?php endif; ?>
+                        <hr ALIGN="center" >
                 <?php endforeach; ?>
             </div>
         </div>

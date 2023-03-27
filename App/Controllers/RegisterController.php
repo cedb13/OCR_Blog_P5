@@ -22,35 +22,40 @@ class RegisterController extends Controller{
    
     public function register(){
 
-        $register = empty($register);
-        //On récupère les données du formulaire
-        $lastName		= htmlspecialchars(strip_tags($_POST['last_name']));
-        $firstName		= htmlspecialchars(strip_tags($_POST['first_name']));
-        $email_sanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        $email			= filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
-        $password		= $_POST['password'];
+        $message = false;
+        if(isset($_POST)){
 
-        $messages['messages']= array ('message1'=>"vous êtes bien enregistré", 'message2'=>"Vous n'êtes pas enregistré", 'message3'=>"il semblerait que vous avez déjà un compte!");
+            $register = empty($register);
+            //On récupère les données du formulaire
+            $lastName		= htmlspecialchars(strip_tags($_POST['last_name']));
+            $firstName		= htmlspecialchars(strip_tags($_POST['first_name']));
+            $email_sanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            $email			= filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
+            $password		= $_POST['password'];
+    
+            $messages['messages']= array ('message1'=>"vous êtes bien enregistré", 'message2'=>"Vous n'êtes pas enregistré", 'message3'=>"il semblerait que vous avez déjà un compte!");
+    
+            if($this->userService->getUserByCredential($email, $password) == false && !$this->userService->isEmailExists($email)){
+                 //insertion du résultat
+                $register=$this->userService->insertUser($lastName, $firstName, $email, $password);
+                $user= $this->userService->getUserByCredential($email, $password);
+                $message = true;
+    
+                $_SESSION['user'] = $user;
+                $_SESSION['idUser'] = $_SESSION['user']->idUser;
+                $_SESSION["first_name"] = $_SESSION['user']->first_name;
+                $_SESSION["last_name"] = $_SESSION['user']->last_name;
+    
+    
+                header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
+                
+            }
+            else{
+                header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=register');
+            }
 
-        if(isset($_POST) && $this->userService->getUserByCredential($email, $password) == false && !$this->userService->isEmailExists($email)){
-             //insertion du résultat
-            $register=$this->userService->insertUser($lastName, $firstName, $email, $password);
-            $user= $this->userService->getUserByCredential($email, $password);
-
-
-            $_SESSION['user'] = $user;
-            $_SESSION['idUser'] = $_SESSION['user']->idUser;
-            $_SESSION["first_name"] = $_SESSION['user']->first_name;
-            $_SESSION["last_name"] = $_SESSION['user']->last_name;
-            
         }
-        else{
 
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=register');
-
-        }
-
-        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
     }
 
 }

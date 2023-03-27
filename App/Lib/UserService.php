@@ -99,7 +99,6 @@ class UserService{
         $query = "INSERT INTO user (last_name, first_name, email, password) VALUES ('$lastName','$firstName','$email','$password')";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
-        $sth=$sth->fetch();
 
         $newId = $this->db->getPDO()->lastInsertId();
 
@@ -110,11 +109,20 @@ class UserService{
      * 
      */
     public function updateUser($lastName, $firstName, $email, $password, $idUser){
-        $query = "UPDATE post  SET last_name='$lastName', first_name='$firstName', email='$email', password='$password' WHERE idpost='$idUser' ";
+        $query = "UPDATE user  SET last_name='$lastName', first_name='$firstName', email='$email', password='$password' WHERE idUser='$idUser' ";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
-        $sth=$sth->fetch();
-
     }
 
+    public function getAllUser(){
+        $results = [];
+        $query = $this->db->getPDO()->prepare("SELECT idUser, last_name, first_name, email FROM user ");
+        $query->execute();
+        $query=$query->fetchall();
+        foreach($query as $data){
+            $user= new User($data['idUser'], $data['last_name'], $data['first_name'], $data['email']);
+            array_push($results, $user);
+        }
+        return $results;
+    }
 }

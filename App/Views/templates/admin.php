@@ -4,6 +4,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
+                <?php if($this->userIsConnected()== true):?>
                     <h1>Interface d'administration</h1>
                     <h2> C'est ici que ça se passe</h2>
                     <span class="subheading"><?= $adminMessages['message1'] ?></span>
@@ -22,7 +23,6 @@
                  <h3>Vos informations</h3>
                      <a href="#btn-info" title="Modifier vos informations"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                      <div class="mb-4" style="text-align : left; padding-left: 20%;">
-                        <?php if($this->userIsConnected()== true):?>
                             <?php foreach($userInfo as $value): ?>
                         Nom : <?= $value->last_name; ?><br>
                         Prénom : <?= $value->first_name; ?><br>
@@ -39,7 +39,7 @@
                                     <div class="modal-body bg-dark">
                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             <div class="myform bg-dark">
-                                                <form name="auth" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser">
+                                                <form name="updateUser" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser" onsubmit="alert('Vos données ont bien été modifiées.'); return true;">
                                                     <div class="mb-3 mt-4">    
                                                         <label for="InputlastName" class="form-label">Nom</label>
                                                         <input class="form-control" name="newLastName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->last_name; ?>" list="names_pattern3_datalist"/>
@@ -56,8 +56,9 @@
                                                         <label for="InputPassword" class="form-label">Entrer votre Password actuel si vous voulez le concerver ou entrer un nouveau Password</label>
                                                         <input type="password" class="form-control"  name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" value="" list="passwords_pattern1_datalist">
                                                     </div>
-                                                    <button type="submit" class="btn btn-light mt-3" name="newSuubmit" value="1">CHANGE</button>
+                                                    <button type="submit" id="submitButton" class="btn btn-light mt-3" name="submit" value="modifier">CHANGE</button>
                                                 </form>
+                                                 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +66,6 @@
                             </div>
                         </div>
                     <?php endforeach ?>
-                    <?php endif; ?>
          </article>
          <article class="text-center col-lg-4" data-sal="slide-down" data-sal-duration="1000">
              <a class="nav-link txt-color-2" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">
@@ -97,4 +97,7 @@
                             </ul>
          </article>
      </section>
+        <?php else : ?>
+            <div><h4>PERDU</h4></div>
+        <?php endif; ?>
  </main>

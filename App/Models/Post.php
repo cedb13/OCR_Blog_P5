@@ -59,7 +59,7 @@ class Post extends Model{
     }
 
     public function getExcerpt(){
-        $excerpt = substr($this->content_post, 0, 250);
+        $excerpt = substr($this->content_post, 0, 252);
         return $excerpt;
     }
 
