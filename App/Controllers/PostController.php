@@ -47,7 +47,7 @@ class PostController extends Controller{
         if(isset($_POST)){
             $comment = empty($comment);
             //On récupère les données du formulaire
-            $idpost         = htmlspecialchars($_POST['idPost']);
+            $idPost         = htmlspecialchars($_POST['idPost']);
             $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
             $firstName		= htmlspecialchars(strip_tags($_POST['firstName']));
             $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -72,7 +72,7 @@ class PostController extends Controller{
             $idComment    = htmlspecialchars($_POST['idComment']);
             $statusSelect = htmlspecialchars(strip_tags($_POST['statusSelect']));
 
-            if($idpost>0){
+            if($idPost>0){
                 if($statusSelect=='validate'){
                     $validate = 1;
                     $adminComment=$this->commentService->updateComment($validate, $idComment);

@@ -53,7 +53,7 @@ class PostService{
     $sth->execute();
     }
 
-    public function updatePost($idUser, $title, $caption, $contentPost, $idpost){
+    public function updatePost($idUser, $title, $caption, $contentPost, $idPost){
         
         $query = "UPDATE post  SET user_idUser='$idUser', title='$title', caption='$caption', contentPost='$contentPost', dateLastUpload=DATE( NOW() )  WHERE idPost='$idPost' ";
         $sth = $this->db->getPDO()->prepare($query);

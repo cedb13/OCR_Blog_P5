@@ -11,7 +11,7 @@ foreach($post as $value)
                     <span class="meta">
                         Posté par
                         <a href="#"><?= $value->firstName; ?> <?= $value->lastName; ?></a>
-                        le <?= $value->dateLastUpload; ?>
+                        et mis à jour le <?= $value->dateLastUpload; ?>
                     </span>
                 </div>
             </div>
