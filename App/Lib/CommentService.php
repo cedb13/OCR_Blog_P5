@@ -20,15 +20,15 @@ class CommentService{
    public function getCommentValidateByPost(){
         $id= $_GET['id'];
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idcomment, comment.title, content_comment, comment.last_name, comment.first_name, date_publication, post_idpost, validate, post.idpost 
+        $query = $this->db->getPDO()->prepare("SELECT idComment, comment.title, contentComment, comment.lastName, comment.firstName, datePublication, post_idPost, validate, post.idPost 
         FROM comment 
         LEFT JOIN post
-            ON idpost = post_idpost
-            WHERE validate = 1 AND post_idpost = '$id'");
+            ON idPost = post_idPost
+            WHERE validate = 1 AND post_idPost = '$id'");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
-            $comment= new Comment($data['idcomment'], $data['title'], $data['content_comment'], $data['last_name'], $data['first_name'], $data['date_publication'], $data['post_idpost'], $data['validate']);
+            $comment= new Comment($data['idComment'], $data['title'], $data['contentComment'], $data['lastName'], $data['firstName'], $data['datePublication'], $data['post_idPost'], $data['validate']);
             array_push($results, $comment);
         }
         return $results;
@@ -37,42 +37,42 @@ class CommentService{
    public function getAllCommentByPost(){
         $id= $_GET['id'];
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idcomment, comment.title, content_comment, comment.last_name, comment.first_name, date_publication, post_idpost, validate, post.idpost 
+        $query = $this->db->getPDO()->prepare("SELECT idComment, comment.title, contentComment, comment.lastName, comment.firstName, datePublication, post_idPost, validate, post.idPost 
         FROM comment 
         LEFT JOIN post
-            ON idpost = post_idpost
-            WHERE post_idpost = '$id'");
+            ON idPost = post_idPost
+            WHERE post_idPost = '$id'");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
-            $comment= new Comment($data['idcomment'], $data['title'], $data['content_comment'], $data['last_name'], $data['first_name'], $data['date_publication'], $data['post_idpost'], $data['validate']);
+            $comment= new Comment($data['idComment'], $data['title'], $data['contentComment'], $data['lastName'], $data['firstName'], $data['datePublication'], $data['post_idPost'], $data['validate']);
             array_push($results, $comment);
         }
         return $results;
    }
 
 
-   public function insertComment($lastName, $firstName, $email, $title, $content, $idpost){
+   public function insertComment($lastName, $firstName, $email, $title, $content, $idPost){
 
-        $query = "INSERT INTO comment (last_name, first_name, email, title, content_comment, date_publication, post_idpost, validate) VALUES ('$lastName','$firstName','$email','$title','$content', '".date('Y-m-d')."', '$idpost', 0 )";
+        $query = "INSERT INTO comment (lastName, firstName, email, title, contentComment, datePublication, post_idPost, validate) VALUES ('$lastName','$firstName','$email','$title','$content', '".date('Y-m-d')."', '$idPost', 0 )";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
    }
 
-   public function updateComment($validate, $idcomment){
-         $query = "UPDATE comment  SET validate='$validate' WHERE idcomment='$idcomment' ";
+   public function updateComment($validate, $idComment){
+         $query = "UPDATE comment  SET validate='$validate' WHERE idComment='$idComment' ";
          $sth = $this->db->getPDO()->prepare($query);
          $sth->execute();
     }
 
-    public function deleteComment($idcomment){
-        $query = "DELETE FROM comment WHERE idcomment='$idcomment'";
+    public function deleteComment($idComment){
+        $query = "DELETE FROM comment WHERE idComment='$idComment'";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
     }
 
-    public function deleteAllCommentsByPost($idpost){
-        $query = "DELETE FROM comment WHERE post_idpost = '$idpost'";
+    public function deleteAllCommentsByPost($idPost){
+        $query = "DELETE FROM comment WHERE post_idPost = '$idPost'";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
     }

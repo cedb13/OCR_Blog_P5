@@ -21,17 +21,17 @@
                         <div class="my-5">
                             <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('vous êtes bien enregistré.'); return true;" onsubmit="alert('avez vous un compte déjà?');">
                                 <div class="form-floating">
-                                    <input class="form-control" id="lastName" name="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
-                                    <span name="last_name_empty"></span>
+                                    <span name="lastName_empty"></span>
                                     <br>
-                                    <span name="last_name"></span>
+                                    <span name="lastName"></span>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="firstName" name="first_name" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="firstName">Prénom</label>
-                                    <span name="first_name_empty"></span>
-                                    <span name="first_name"></span>
+                                    <span name="firstName_empty"></span>
+                                    <span name="firstName"></span>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required/>

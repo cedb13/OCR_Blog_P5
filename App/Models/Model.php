@@ -22,8 +22,8 @@ class Model{
 
     private static function getTable(){
         if(static::$table === null){
-            $class_name = explode('\\', get_called_class());
-            static::$table =strtolower(end($class_name));
+            $className = explode('\\', get_called_class());
+            static::$table =strtolower(end($className));
         }
         return static::$table;
     }
@@ -43,7 +43,7 @@ class Model{
             ",  get_called_class());
     }
 
-    public function __get($key) //fonction magic pour trouver un élément, exemple : quand on nomme notre fonction 'getUrl'cela nous évite de reprendre toute la fonction associé à get pour récupérer l'élément "url"...
+    public function __get($key)
     {
         $method = 'get' . ucfirst($key);
         $this->$key = $this->$method();

@@ -21,11 +21,11 @@ class UserService{
         if(isset($_SESSION['user'])){
             $idUser= $_SESSION['user']->idUser;
             $results = [];
-            $query = $this->db->getPDO()->prepare("SELECT idUser, last_name, first_name, email FROM user WHERE idUser='$idUser'");
+            $query = $this->db->getPDO()->prepare("SELECT idUser, lastName, firstName, email FROM user WHERE idUser='$idUser'");
             $query->execute();
             $query=$query->fetchall();
             foreach($query as $data){
-                $user= new User($data['idUser'], $data['last_name'], $data['first_name'], $data['email']);
+                $user= new User($data['idUser'], $data['lastName'], $data['firstName'], $data['email']);
                 array_push($results, $user);
             }
             return $results;
@@ -39,7 +39,7 @@ class UserService{
         $result->execute();
         $result=$result->fetch();
         if($result){
-            $user= new User($result['idUser'], $result['last_name'], $result['first_name'], $result['email']);
+            $user= new User($result['idUser'], $result['lastName'], $result['firstName'], $result['email']);
 
         }
 
@@ -54,7 +54,7 @@ class UserService{
      */
     public function isUsernameExists($lastName, $firstName){
 
-        $query = $this->db->getPDO()->query("SELECT * FROM user WHERE last_name = '$lastName' AND first_name = '$firstName'");
+        $query = $this->db->getPDO()->query("SELECT * FROM user WHERE lastName = '$lastName' AND firstName = '$firstName'");
         $query->execute();
         $query=$query->fetch();
         if($query){
@@ -96,7 +96,7 @@ class UserService{
 
    public function insertUser($lastName, $firstName, $email, $password){
 
-        $query = "INSERT INTO user (last_name, first_name, email, password) VALUES ('$lastName','$firstName','$email','$password')";
+        $query = "INSERT INTO user (lastName, firstName, email, password) VALUES ('$lastName','$firstName','$email','$password')";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
 
@@ -109,18 +109,18 @@ class UserService{
      * 
      */
     public function updateUser($lastName, $firstName, $email, $password, $idUser){
-        $query = "UPDATE user  SET last_name='$lastName', first_name='$firstName', email='$email', password='$password' WHERE idUser='$idUser' ";
+        $query = "UPDATE user  SET lastName='$lastName', firstName='$firstName', email='$email', password='$password' WHERE idUser='$idUser' ";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
     }
 
     public function getAllUser(){
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idUser, last_name, first_name, email FROM user ");
+        $query = $this->db->getPDO()->prepare("SELECT idUser, lastName, firstName, email FROM user ");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
-            $user= new User($data['idUser'], $data['last_name'], $data['first_name'], $data['email']);
+            $user= new User($data['idUser'], $data['lastName'], $data['firstName'], $data['email']);
             array_push($results, $user);
         }
         return $results;

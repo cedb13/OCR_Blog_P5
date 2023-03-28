@@ -47,20 +47,20 @@ class PostController extends Controller{
         if(isset($_POST)){
             $comment = empty($comment);
             //On récupère les données du formulaire
-            $idpost         = htmlspecialchars($_POST['idpost']);
-            $lastName		= htmlspecialchars(strip_tags($_POST['last_name']));
-            $firstName		= htmlspecialchars(strip_tags($_POST['first_name']));
-            $email_sanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            $email			= filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
+            $idpost         = htmlspecialchars($_POST['idPost']);
+            $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
+            $firstName		= htmlspecialchars(strip_tags($_POST['firstName']));
+            $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
             $title          = htmlspecialchars(strip_tags($_POST['title']));
-            $content        = htmlspecialchars(strip_tags($_POST['content_comment']));
+            $content        = htmlspecialchars(strip_tags($_POST['contentComment']));
 
-            if($idpost>0){
+            if($idPost>0){
                 //insertion du résultat
-                $comment=$this->commentService->insertComment($lastName, $firstName, $email, $title, $content, $idpost);
+                $comment=$this->commentService->insertComment($lastName, $firstName, $email, $title, $content, $idPost);
             }
 
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idpost);
+            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
         }
 
     }
@@ -68,21 +68,21 @@ class PostController extends Controller{
     public function adminComment(){
         if(isset($_POST)){
             $adminComment = empty($adminComment);
-            $idpost       = htmlspecialchars($_POST['idpost']);
-            $idcomment    = htmlspecialchars($_POST['idcomment']);
+            $idPost       = htmlspecialchars($_POST['idPost']);
+            $idComment    = htmlspecialchars($_POST['idComment']);
             $statusSelect = htmlspecialchars(strip_tags($_POST['statusSelect']));
 
             if($idpost>0){
                 if($statusSelect=='validate'){
                     $validate = 1;
-                    $adminComment=$this->commentService->updateComment($validate, $idcomment);
+                    $adminComment=$this->commentService->updateComment($validate, $idComment);
                 }
                 elseif($statusSelect=='delete'){
-                    $adminComment=$this->commentService->deleteComment($idcomment);
+                    $adminComment=$this->commentService->deleteComment($idComment);
                 }
             }
 
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idpost);
+            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
         }
         
     }
@@ -96,7 +96,7 @@ class PostController extends Controller{
             $idUser		    = $_SESSION['idUser'];
             $title          = htmlspecialchars(strip_tags($_POST['title']));
             $caption        = htmlspecialchars(strip_tags($_POST['caption']));
-            $contentPost    = htmlspecialchars(strip_tags($_POST['content_post']));
+            $contentPost    = htmlspecialchars(strip_tags($_POST['contentPost']));
             
             if($idUser>0){
                 //insertion du résultat
@@ -113,16 +113,16 @@ class PostController extends Controller{
 
             $adminPostComment = empty($adminPostComment);
             $adminPost        = empty($adminPost);
-            $idpost           = htmlspecialchars($_POST['idpost']);
+            $idPost           = htmlspecialchars($_POST['idPost']);
             $statusSelect	  = htmlspecialchars(strip_tags($_POST['statusSelect']));
     
-            if($idpost>0){
+            if($idPost>0){
                 if($statusSelect=='update'){
-                    header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idpost);
+                    header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
                 }
                 elseif($statusSelect=='delete'){
-                    $adminPostComment=$this->commentService->deleteAllCommentsByPost($idpost);
-                    $adminPost=$this->postService->deletePost($idpost);
+                    $adminPostComment=$this->commentService->deleteAllCommentsByPost($idPost);
+                    $adminPost=$this->postService->deletePost($idPost);
                     header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list');
                 }
             }
@@ -135,10 +135,10 @@ class PostController extends Controller{
         
         if(isset($_POST)){
             $adminPost      = empty($adminPost);
-            $idpost         = htmlspecialchars($_POST['idpost']);
+            $idPost         = htmlspecialchars($_POST['idPost']);
             $title          = htmlspecialchars(strip_tags($_POST['title']));
             $caption        = htmlspecialchars(strip_tags($_POST['caption']));
-            $contentPost    = htmlspecialchars(strip_tags($_POST['content_post']));
+            $contentPost    = htmlspecialchars(strip_tags($_POST['contentPost']));
             $authorSelect	= htmlspecialchars(strip_tags($_POST['authorSelect']));
             $idUser         = $_SESSION['idUser'];
     
@@ -146,11 +146,11 @@ class PostController extends Controller{
                 $idUser = $authorSelect;
             }
                 
-            $adminPost=$this->postService->updatePost($idUser, $title, $caption, $contentPost, $idpost);
+            $adminPost=$this->postService->updatePost($idUser, $title, $caption, $contentPost, $idPost);
 
         }
                     
-        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idpost);
+        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
     }
 
 }

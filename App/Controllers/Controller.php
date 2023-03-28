@@ -39,9 +39,9 @@ class Controller{
         extract($this->contents);
         ob_start();
         require(ROOT.$this->viewPath .DIRECTORY_SEPARATOR. str_replace('.', '/', $view) .'.php');
-        $content_layout = ob_get_clean();
+        $contentLayout = ob_get_clean();
         if($this->template==false){
-            echo $content_layout;
+            echo $contentLayout;
         }
         else{
             require(ROOT.$this->viewPath .DIRECTORY_SEPARATOR.$this->template.'.php');

@@ -33,7 +33,7 @@
                                         <label for="name">Phrase d'accroche</label>
                                     </div>
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="content_post" name="content_post" type="textarea" placeholder="Entrer votre contenu ici..." style="height: 12rem" required="required" spellcheck ></textarea>
+                                        <textarea class="form-control" id="contentPost" name="contentPost" type="textarea" placeholder="Entrer votre contenu ici..." style="height: 12rem" required="required" spellcheck ></textarea>
                                         <label for="message">Contenu</label>
                                     </div>
                                     <br />
@@ -64,7 +64,7 @@
                                     <fieldset>
                                         <legend>Que voulez-vous faire de cet article?</legend>
                                             <div class="form-floating">
-                                                <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $post->idpost; ?>" list="names_pattern3_datalist" />
+                                                <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $post->idPost; ?>" list="names_pattern3_datalist" />
                                             </div>
                                             <div>
                                                 <label for="statusSelect">modifier ou supprimer l'article s'il vous plait:</label>

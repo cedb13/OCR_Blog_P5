@@ -115,7 +115,7 @@
                                 <div class="d-none" id="submitSuccessMessage">
                                     <div class="text-center mb-3">
                                         <div class="fw-bolder">Form submission successful!</div>
-                                        Rejoindre l'accueil, c'est par ici --->
+                                        Rejoindre l'accueil, c'est par ici 
                                         <br />
                                         <a href="http://localhost/OCR_Blog_P5/public/index.php?page=home">merci de vous intéressez à notre blog</a>
                                     </div>

@@ -24,8 +24,8 @@
                      <a href="#btn-info" title="Modifier vos informations"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                      <div class="mb-4" style="text-align : left; padding-left: 20%;">
                             <?php foreach($userInfo as $value): ?>
-                        Nom : <?= $value->last_name; ?><br>
-                        Prénom : <?= $value->first_name; ?><br>
+                        Nom : <?= $value->lastName; ?><br>
+                        Prénom : <?= $value->firstName; ?><br>
                         Email : <?= $value->email; ?><br>
                         <div name='idUser' style='display:none'>id : <?= $value->idUser; ?></div>
                     </div>
@@ -42,11 +42,11 @@
                                                 <form name="updateUser" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser" onsubmit="alert('Vos données ont bien été modifiées.'); return true;">
                                                     <div class="mb-3 mt-4">    
                                                         <label for="InputlastName" class="form-label">Nom</label>
-                                                        <input class="form-control" name="newLastName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->last_name; ?>" list="names_pattern3_datalist"/>
+                                                        <input class="form-control" name="newLastName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->lastName; ?>" list="names_pattern3_datalist"/>
                                                     </div>
                                                     <div class="mb-3">    
                                                         <label for="InputlastName" class="form-label">Prénom</label>
-                                                        <input class="form-control" name="newfirstName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->first_name; ?>" list="names_pattern3_datalist"/>
+                                                        <input class="form-control" name="newfirstName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->firstName; ?>" list="names_pattern3_datalist"/>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="Inputemail" class="form-label">email address</label>

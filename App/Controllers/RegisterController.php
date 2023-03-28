@@ -27,10 +27,10 @@ class RegisterController extends Controller{
 
             $register = empty($register);
             //On récupère les données du formulaire
-            $lastName		= htmlspecialchars(strip_tags($_POST['last_name']));
-            $firstName		= htmlspecialchars(strip_tags($_POST['first_name']));
-            $email_sanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            $email			= filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
+            $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
+            $firstName		= htmlspecialchars(strip_tags($_POST['firstName']));
+            $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
             $password		= $_POST['password'];
     
             $messages['messages']= array ('message1'=>"vous êtes bien enregistré", 'message2'=>"Vous n'êtes pas enregistré", 'message3'=>"il semblerait que vous avez déjà un compte!");
@@ -43,8 +43,8 @@ class RegisterController extends Controller{
     
                 $_SESSION['user'] = $user;
                 $_SESSION['idUser'] = $_SESSION['user']->idUser;
-                $_SESSION["first_name"] = $_SESSION['user']->first_name;
-                $_SESSION["last_name"] = $_SESSION['user']->last_name;
+                $_SESSION["firstName"] = $_SESSION['user']->firstName;
+                $_SESSION["lastName"] = $_SESSION['user']->lastName;
     
     
                 header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');

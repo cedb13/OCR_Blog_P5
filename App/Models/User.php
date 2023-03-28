@@ -10,14 +10,14 @@ class User extends Model {
     protected static $table = 'user';
 
     public $idUser;
-    public $last_name;
-    public $first_name;
+    public $lastName;
+    public $firstName;
     public $email;
 
-    public function __construct($idUser=null, $last_name=null, $first_name=null, $email=null){
+    public function __construct($idUser=null, $lastName=null, $firstName=null, $email=null){
         $this->idUser = $idUser;
-        $this->last_name = $last_name;
-        $this->first_name = $first_name;
+        $this->lastName = $lastName;
+        $this->firstName = $firstName;
         $this->email = $email;
     }
 
@@ -38,13 +38,13 @@ class User extends Model {
     }
 
     public function getLastName(){
-        $last_name = $this->last_name;
-        return $last_name;
+        $lastName = $this->lastName;
+        return $lastName;
     }
 
     public function getFirstName(){
-        $first_name = $this->first_name;
-        return $first_name;
+        $firstName = $this->firstName;
+        return $firstName;
     }
 
     public function __toString(){

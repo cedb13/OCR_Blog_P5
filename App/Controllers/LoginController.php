@@ -11,8 +11,8 @@ class LoginController extends Controller{
     public function login() {
 
         if (isset($_POST['email']) && isset($_POST['password'])) {
-            $email_sanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            $email = filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
+            $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            $email = filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
             $password = $_POST['password'];
 
 
@@ -20,8 +20,8 @@ class LoginController extends Controller{
             if($user= $this->userService->getUserByCredential($email, $password)){
                 $_SESSION['user'] = $user;
                 $_SESSION['idUser'] = $_SESSION['user']->idUser;
-                $_SESSION["first_name"] = $_SESSION['user']->first_name;
-                $_SESSION["last_name"] = $_SESSION['user']->last_name;
+                $_SESSION["firstName"] = $_SESSION['user']->firstName;
+                $_SESSION["lastName"] = $_SESSION['user']->lastName;
                 header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
             }
             else{

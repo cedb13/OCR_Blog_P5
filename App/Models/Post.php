@@ -10,31 +10,31 @@ class Post extends Model{
 
     protected static $table = 'post';
 
-    public $idpost;
+    public $idPost;
     public $title;
     public $caption;
-    public $content_post;
-    public $last_name;
-    public $first_name;
-    public $date_last_upload;
+    public $contentPost;
+    public $lastName;
+    public $firstName;
+    public $dateLastUpload;
     
     //pour récupérer mes derniers posts
-    public function __construct($idpost=null, $title=null, $caption=null, $content_post=null, $last_name=null, $first_name=null, $date_last_upload=null){
-        $this->idpost = $idpost;
+    public function __construct($idPost=null, $title=null, $caption=null, $contentPost=null, $lastName=null, $firstName=null, $dateLastUpload=null){
+        $this->idPost = $idPost;
         $this->title = $title;
         $this->caption = $caption;
-        $this->content_post = $content_post;
-        $this->last_name = $last_name;
-        $this->first_name = $first_name;
-        $this->date_last_upload = $date_last_upload;
+        $this->contentPost = $contentPost;
+        $this->lastName = $lastName;
+        $this->firstName = $firstName;
+        $this->dateLastUpload = $dateLastUpload;
     }
 
     public function getId(){
-        return $this->idpost;
+        return $this->idPost;
     }
     
     public function setId($id){
-        $this->idpost = $id;
+        $this->idPost = $id;
     }
 
     
@@ -47,7 +47,7 @@ class Post extends Model{
     }
     
     public function getUrl(){
-        return 'index.php?page=post&id=' . $this->idpost;
+        return 'index.php?page=post&id=' . $this->idPost;
     }
 
     public function getCaption(){
@@ -59,12 +59,12 @@ class Post extends Model{
     }
 
     public function getExcerpt(){
-        $excerpt = substr($this->content_post, 0, 252);
+        $excerpt = substr($this->contentPost, 0, 252);
         return $excerpt;
     }
 
     public function getDate(){
-        $date = $this->date_last_upload;
+        $date = $this->dateLastUpload;
         return $date;
     }
 }

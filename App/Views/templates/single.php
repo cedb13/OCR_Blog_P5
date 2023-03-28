@@ -10,8 +10,8 @@ foreach($post as $value)
                     <h2 class="subheading"><?= $value->caption; ?></h2>
                     <span class="meta">
                         Posté par
-                        <a href="#"><?= $value->first_name; ?> <?= $value->last_name; ?></a>
-                        le <?= $value->date_last_upload; ?>
+                        <a href="#"><?= $value->firstName; ?> <?= $value->lastName; ?></a>
+                        le <?= $value->dateLastUpload; ?>
                     </span>
                 </div>
             </div>
@@ -23,7 +23,7 @@ foreach($post as $value)
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7" style="text-align: center;">
-                        <p style="white-space: pre-wrap; text-align : justify;"><?= $value->content_post; ?></p>
+                        <p style="white-space: pre-wrap; text-align : justify;"><?= $value->contentPost; ?></p>
                     </div>
                 </div>
             </div>
@@ -34,14 +34,14 @@ foreach($post as $value)
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <h4 id="comment" style="text-align: center;">Yes! Pour modifier un article c'est ici</h4>
-                        <p>Si vous voulez modifier votre article, remplissez les champs et cliquer sur envoyer! </p>
+                        <p>Si vous voulez modifier un article, remplissez les champs et cliquer sur envoyer! </p>
                             <div class="my-5">
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Comment Form * *-->
                             <!-- * * * * * * * * * * * * * * *-->
                                 <form id="postForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminUpdatePost" onsubmit="alert('Votre article a bien été modifié.'); return true;">
                                     <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idpost; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
                                     </div>
                                     <div class="form-floating">
                                         <input class="form-control" id="title" name="title" type="title"  value="<?=$value->title; ?>" maxlength="80" />
@@ -53,7 +53,7 @@ foreach($post as $value)
                                             <select name="authorSelect">
                                                 <option value="">--Choisir un auteur merci--</option>
                                                 <?php foreach($users as $user): ?>
-                                                <option value="<?= $user->idUser?>"><?= $user->first_name.' '.$user->last_name; ?></option>
+                                                <option value="<?= $user->idUser?>"><?= $user->firstName.' '.$user->lastName; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -65,7 +65,7 @@ foreach($post as $value)
                                         <label for="name">Phrase d'accroche</label>
                                     </div>
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="content_post" name="content_post" type="textarea"  style="height: 12rem" spellcheck value=""><?= $value->content_post; ?></textarea>
+                                        <textarea class="form-control" id="contentPost" name="contentPost" type="textarea"  style="height: 12rem" spellcheck value=""><?= $value->contentPost; ?></textarea>
                                         <label for="message">Contenu</label>
                                     </div>
                                     <br />
@@ -89,7 +89,7 @@ foreach($post as $value)
                         <br></br>       
                             <?php foreach($comments as $comment):?>
                             <h2>"<?= $comment->title; ?>"</h2>
-                                <p><em>De <?= $comment->last_name; ?> <?= $comment->first_name; ?></em></p>
+                                <p><em>De <?= $comment->lastName; ?> <?= $comment->firstName; ?></em></p>
                                 <p style="white-space: pre-wrap; text-align : justify;"><?= $comment->content; ?></p>
                                 <p><em>Commentaire fait le :  <?= $comment->date; ?></em></p>
                                 <?php if($this->userIsConnected()== true):?>
@@ -100,10 +100,10 @@ foreach($post as $value)
                                         <fieldset>
                                         <legend>Que voulez-vous faire de ce commentaire?</legend>
                                         <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idpost; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
                                         </div>
                                         <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idcomment" type="text"  required="required" pattern="^{1,15}$" value="<?= $comment->idcomment; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idComment" type="text"  required="required" pattern="^{1,15}$" value="<?= $comment->idComment; ?>" list="names_pattern3_datalist" />
                                         </div>
                                         <div>
                                         <label for="statusSelect">Valider ou supprimer le commentaire s'il vous plait:</label>
@@ -125,10 +125,10 @@ foreach($post as $value)
                                         <fieldset>
                                         <legend>Que voulez-vous faire de ce commentaire?</legend>
                                         <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idpost; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
                                         </div>
                                         <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idcomment" type="text"  required="required" pattern="^{1,15}$" value="<?= $comment->idcomment; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idComment" type="text"  required="required" pattern="^{1,15}$" value="<?= $comment->idComment; ?>" list="names_pattern3_datalist" />
                                         </div>
                                         <div>
                                             <input type="checkbox" class="delete" name="statusSelect" value="delete">
@@ -160,14 +160,14 @@ foreach($post as $value)
                         <!-- * * * * * * * * * * * * * * *-->
                             <form id="commentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=registerComment" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
                                 <div class="form-floating">
-                                    <input type="hidden" class="form-control" name="idpost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idpost; ?>" list="names_pattern3_datalist" />
+                                    <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
+                                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
                                     <label for="name">Nom</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
                                     <label for="name">Prénom</label>
                                 </div>
                                 <div class="form-floating">
@@ -179,7 +179,7 @@ foreach($post as $value)
                                     <label for="name">Titre</label>
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="content_comment" name="content_comment" type="textarea" placeholder="Entrer votre message ici..." style="height: 12rem" required="required" spellcheck maxlength="600"></textarea>
+                                    <textarea class="form-control" id="contentComment" name="contentComment" type="textarea" placeholder="Entrer votre message ici..." style="height: 12rem" required="required" spellcheck maxlength="600"></textarea>
                                     <label for="message">Commentaire</label>
                                 </div>
                                 <br />
