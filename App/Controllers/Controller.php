@@ -1,41 +1,59 @@
 <?php
 namespace App\Controllers;
 
-use App\Lib\App;
+use App\Models\Model;
+use App\Lib\UserService;
+use App\Lib\PostService;
+use App\Lib\CommentService;
 
-abstract class Controller{
+class Controller{
 
+    public $userService;
+    public $postService;
+    public $commentService;
     protected $viewPath;
     protected $template = 'default';
     public $contents = array();
 
     public function __construct(){
-
+        session_start();
+        $this->userService = new UserService;
+        $this->postService = new PostService;
+        $this->commentService = new CommentService;
         $this->viewPath = '/App/Views/templates';
     }
 
-  protected function loadModel($model_name){
-        $this->$model_name = App::getInstance()->getTable($model_name);
-    }
-
-    public function setContents($contents){
-        $this->contents = array_merge($this->contents,$contents);
+  protected function loadModel($modelName){
+        $this->$modelName = Model::getInstance()->getTable($modelName);
     }
 
     public function getContents(){
         return $this->contents ;
     }
 
+    public function setContents($contents){
+        $this->contents = array_merge($this->contents,$contents);
+    }
+
     public function render($view){
         extract($this->contents);
         ob_start();
         require(ROOT.$this->viewPath .DIRECTORY_SEPARATOR. str_replace('.', '/', $view) .'.php');
-        $content_layout = ob_get_clean();
+        $contentLayout = ob_get_clean();
         if($this->template==false){
-            echo $content_layout;
+            echo $contentLayout;
         }
         else{
             require(ROOT.$this->viewPath .DIRECTORY_SEPARATOR.$this->template.'.php');
         }
     }
+
+    protected function userIsConnected():bool {
+
+        if (isset($_SESSION['user']) && $_SESSION['user']->idUser>0){
+              return true;
+        }
+            return false;   
+     }
+
 }

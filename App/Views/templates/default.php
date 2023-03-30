@@ -1,28 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Blog CV mais aussi qui parle du développement informatique" />
         <meta name="author" content="" />
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
-        <title><?= App\Lib\App::getTitle(); ?></title>
+        <title>Mon CV en ligne</title>
         <!-- Favicons -->
+<<<<<<< HEAD
         <link rel="icon" type="image/x-icon" href="../public/assets/favicon.ico" />
+=======
+        <link rel="icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
+>>>>>>> Feature-issue-6-single_post
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../public/css/styles.css" rel="stylesheet" />
+        <link href="http://localhost/OCR_Blog_P5/public/css/styles.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" type="text/javascript"></script>
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://localhost/OCR_Blog_P5/public/index.php?page=home">Start Bootstrap</a>
+                <a class="navbar-brand" href="http://localhost/OCR_Blog_P5/public/index.php/home#cv">Curriculum Vitae</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -30,43 +35,67 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=posts">consulter nos posts</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&id=1">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home/#contactForm">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">Nos posts en résumé</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Choisissez un Post</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <?php 
+                                foreach($posts as $post):
+                                ?>
+                                <li><a class="dropdown-item" href="<?= $post->url?>"><?= $post->title; ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home#contact">Contact</a></li>
+                        <?php if($this->userIsConnected()== true):?>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=admin">Administration</a></li>
                     </ul>
                 </div>
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalForm">
-                  Login
-                </button>
-                <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-body bg-dark">
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <div class="myform bg-dark">
-                                <h1 class="text-center">Login Form</h1>
-                                <form>
-                                    <div class="mb-3 mt-4">
-                                        <label for="InputEmail" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+                <div>
+                    <button type="button" class="btn btn-dark" type="submit" name="decoAuth" >
+                        <a href="http://localhost/OCR_Blog_P5/public/index.php?page=login&action=logout" style="color:white;"> DECONEXION </a>
+                    </button>
+                        <?php else: ?>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=register">Nous rejoindre</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ModalForm">
+                        LOGIN
+                    </button>
+                    <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body bg-dark">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="myform bg-dark">
+                                        <form name="auth" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=login&action=login">
+                                            <div class="mb-3 mt-4">
+                                                <label for="Inputemail" class="form-label">email address</label>
+                                                <input type="email" class="form-control" name="email"aria-describedby="emailHelp" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="InputPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control"  name="password" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-light mt-3" name="submit" value="1">LOGIN</button>
+                                            <p>Not a member?  
+                                                <button type="submit" class="btn bg-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                    <a href="http://localhost/OCR_Blog_P5/public/index.php?page=register">Rejoignez nous</a>
+                                                </button>
+                                            </p>
+                                        </form>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="InputPassword" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="InputPassword">
-                                    </div>
-                                    <button type="submit" class="btn btn-light mt-3">LOGIN</button>
-                                    <p>Not a member? <a href="http://localhost/OCR_Blog_P5/public/index.php?page=home/#contactForm">Contact us</a></p>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             </div>
         </nav>
        
 
-<?= $content_layout; ?>
+<?= $contentLayout; ?>
 
 
 
@@ -109,6 +138,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="../public/js/scripts.js"></script>
+        <script src="http://localhost/OCR_Blog_P5/public/js/scripts.js"></script>
     </body>
 </html>
