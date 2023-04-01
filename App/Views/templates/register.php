@@ -6,7 +6,7 @@
                 <div class="site-heading">
                     <h1>Vous souhaitez nous rejoindre?</h1>
                     <h2> C'est ici que ça se passe</h2>
-                    <span class="subheading"><?= $test['message1'] ?></span>
+                    <span class="subheading"><?= $message['message1'] ?></span>
                 </div>
             </div>
         </div>
@@ -19,35 +19,27 @@
                 <h4 id="contact" class="signup-heading">Enregistrement</h4>
                     <p>Veuillez remplir tous les champs merci</p>
                         <div class="my-5">
-                            <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('vous êtes bien enregistré.'); return true;" onsubmit="alert('avez vous un compte déjà?');">
+                            <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('les informations ont été envoyé.');">
                                 <div class="form-floating">
                                     <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
-                                    <span name="lastName_empty"></span>
-                                    <br>
-                                    <span name="lastName"></span>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="firstName">Prénom</label>
-                                    <span name="firstName_empty"></span>
-                                    <span name="firstName"></span>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required/>
-                                    <label for="email">Email address</label>
+                                    <label for="email">Email</label>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="signup-password" name="password" type="password" placeholder="Entrer un mot de pass..." required="required" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" value="" list="passwords_pattern1_datalist"/>
                                     <label for="password">Password</label>
-                                    <span name="password_empty"></span>
-                                    <span name="password"></span>
                                 </div>
                                 <br />
                                 <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase " id="submitButton" name="submit" type="submit" value="enregistrer">Enregistrer</button>
                             </form>
-                            <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
                         </div>
                 </div>
             </div>

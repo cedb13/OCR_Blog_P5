@@ -24,11 +24,13 @@ class PostController extends Controller{
         }
         
         $posts['posts'] = $this->postService->getAllPost();
+        $lastPosts['lastPosts'] = $this->postService->getLastPost();
         $contents['post'] = $this->postService->getUserByPost();
         $users['users'] = $this->userService->getAllUser();
         $this->setContents($users);
         $this->setContents($comments);
         $this->setContents($posts);
+        $this->setContents($lastPosts);
         $this->setContents($contents);
         $this->render('single');
 
@@ -38,7 +40,9 @@ class PostController extends Controller{
         
 
         $contents['posts'] = $this->postService->getAllPost();
+        $lastPosts['lastPosts'] = $this->postService->getLastPost();
         $this->setContents($contents);
+        $this->setContents($lastPosts);
         $this->render('posts');
     }
 

@@ -8,12 +8,8 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
         <title>Mon CV en ligne</title>
         <!-- Favicons -->
-<<<<<<< HEAD
-        <link rel="icon" type="image/x-icon" href="../public/assets/favicon.ico" />
-=======
         <link rel="icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
->>>>>>> Feature-issue-6-single_post
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -36,12 +32,12 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">Nos posts en résumé</a></li>
-                        <li class="nav-item dropdown"><a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Choisissez un Post</a>
+                        <li class="nav-item dropdown"><a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos derniers Posts</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <?php 
-                                foreach($posts as $post):
+                                foreach($lastPosts as $lastPost):
                                 ?>
-                                <li><a class="dropdown-item" href="<?= $post->url?>"><?= $post->title; ?></a></li>
+                                <li><a class="dropdown-item" href="<?= $lastPost->url?>"><?= $lastPost->title; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
@@ -139,5 +135,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="http://localhost/OCR_Blog_P5/public/js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

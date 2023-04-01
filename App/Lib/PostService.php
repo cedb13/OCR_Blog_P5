@@ -14,10 +14,23 @@ class PostService{
         $this->db = new Db;
     }
 
-    //pour récupérer mes derniers posts
+    //pour récupérer tous les posts
     public function getAllPost(){
         $results = [];
         $query = $this->db->getPDO()->query('SELECT * FROM post');
+        $query->execute();
+        $query=$query->fetchall();
+        foreach($query as $data){
+            $post= new Post($data['idPost'], $data['title'], $data['caption'], $data['contentPost'], null, null, $data['dateLastUpload']);
+            array_push($results, $post);
+        }
+        return $results;
+    }
+
+    //pour récupérer les 5 derniers posts
+    public function getLastPost(){
+        $results = [];
+        $query = $this->db->getPDO()->query('SELECT * FROM post ORDER BY dateLastUpload DESC LIMIT 5');
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
