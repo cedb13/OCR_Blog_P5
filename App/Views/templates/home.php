@@ -4,9 +4,9 @@
           <div class="row gx-4 gx-lg-5 justify-content-center">
               <div class="col-md-10 col-lg-8 col-xl-7">
                   <div class="site-heading">
-                      <h1>Le blog Dev de Cédric</h1>
+                      <h1><?= $com['com1']?></h1>
                       
-                      <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                      <span class="subheading"><?= $com['com2']?></span>
                       <!-- Avatar -->
                       <img class="subheading profile-avatar" src="http://localhost/OCR_Blog_P5/public/assets/img/Cedric_Bonche.jpg" alt="Avatar de Cédric Bonche">
                   </div>
@@ -100,6 +100,10 @@
                                 <div class="form-floating">
                                     <input class="form-control" id="phone" name="phone" type="tel" placeholder="Entrer votre téléphone..." />
                                     <label for="phone">Numéro de téléphone</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="subject" name="subject" type="subject" placeholder="Sujet..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <label for="subject">Sujet</label>
                                 </div>
                                 <div class="form-floating">
                                     <textarea class="form-control" id="message" name="message" placeholder="Entrer votre message ici..." style="height: 12rem" required="required"></textarea>
