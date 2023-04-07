@@ -84,7 +84,7 @@
                       <h4 id="contact">Yes contact it's here</h4>
                         <p>Vous voulez me contacter ? Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais !</p>
                         <div class="my-5">
-                            <form id="contactForm" data-sb-form-api-token="2dbdbb04-da03-4b9f-be70-b87f8e769d87" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=home&action=contactForm">
+                            <form id="contactForm"  method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=home&action=contactForm">
                                 <div class="form-floating">
                                     <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
@@ -96,10 +96,6 @@
                                 <div class="form-floating">
                                     <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required/>
                                     <label for="email">Email</label>
-                                </div>
-                                <div class="form-floating">
-                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="Entrer votre téléphone..." />
-                                    <label for="phone">Numéro de téléphone</label>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="subject" name="subject" type="subject" placeholder="Sujet..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
