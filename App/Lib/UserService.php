@@ -106,6 +106,11 @@ class UserService{
 
     /**
      * update user database
+     * @param string $lastName  
+     * @param string $firstName
+     * @param string $email 
+     * @param string $password
+     * @param int $idUser
      * 
      */
     public function updateUser($lastName, $firstName, $email, $password, $idUser){
