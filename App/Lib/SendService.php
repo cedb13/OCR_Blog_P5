@@ -16,7 +16,8 @@ class SendService{
         $this->db = new Db;
     }
 
-    public function sendMail($subject, $email, $message){
+    public function sendMail($subject, $email, $lastName, $firstName, $message){
+        $username = $lastName.' '.$firstName;
         $mj = new \Mailjet\Client(getenv('f5a38ef45364c7b8057731e348d878dd'),getenv('3a9b3b3dd2ae1693b3b1340e52ab89d5'),true,['version' => 'v3.1']);
         $body = [
                 'Messages' => [
@@ -32,7 +33,7 @@ class SendService{
                             ]
                         ],
                         'Subject' => "$subject",
-                        'TextPart' => "$email, $message",
+                        'TextPart' => "$email, $username, $message",
 
                     ]
                 ]

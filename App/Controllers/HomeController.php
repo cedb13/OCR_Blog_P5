@@ -45,7 +45,7 @@ class HomeController extends Controller{
                 $subject        = htmlspecialchars($_POST['subject']);
                 $message        = htmlspecialchars($_POST['message']);
 
-                $send = $this->sendService->sendMail($subject, $email, $message);
+                $send = $this->sendService->sendMail($subject, $email, $lastName, $firstName, $message);
                 $com['com'] = array('com1'=>'Le blog Dev de Cédric','com2'=>'Votre message a bien été envoyé');
                 $posts['posts'] = $this->postService->getAllPost();
                 $lastPosts['lastPosts'] = $this->postService->getLastPost();
