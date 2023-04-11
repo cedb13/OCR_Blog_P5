@@ -7,9 +7,9 @@ class Model{
 
     protected static $table;
     protected static $_instance;
+    private $db;
 
     public function __construct(){
-        $db = $this->db;
         $this->db = new Db;
     }
 

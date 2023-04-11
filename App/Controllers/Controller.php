@@ -5,12 +5,14 @@ use App\Models\Model;
 use App\Lib\UserService;
 use App\Lib\PostService;
 use App\Lib\CommentService;
+use App\Lib\SendService;
 
 class Controller{
 
     public $userService;
     public $postService;
     public $commentService;
+    public $sendService;
     protected $viewPath;
     protected $template = 'default';
     public $contents = array();
@@ -20,6 +22,7 @@ class Controller{
         $this->userService = new UserService;
         $this->postService = new PostService;
         $this->commentService = new CommentService;
+        $this->sendService = new SendService;
         $this->viewPath = '/App/Views/templates';
     }
 
