@@ -35,7 +35,7 @@ class AdminController extends Controller{
             $firstName		= htmlspecialchars(strip_tags($_POST['newfirstName']));
             $email_sanitize	= filter_var($_POST['newEmail'], FILTER_SANITIZE_EMAIL);
             $email			= filter_var($email_sanitize, FILTER_VALIDATE_EMAIL);
-            $password		= $_POST['newPassword'];
+            $password		= password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
 
             if($idUser>0){
                 $infoUser=$this->userService->updateUser($lastName, $firstName, $email, $password, $idUser);

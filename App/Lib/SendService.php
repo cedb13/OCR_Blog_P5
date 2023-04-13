@@ -18,7 +18,7 @@ class SendService{
 
     public function sendMail($subject, $email, $lastName, $firstName, $message){
         $username = $lastName.' '.$firstName;
-        $mj = new \Mailjet\Client(getenv('f5a38ef45364c7b8057731e348d878dd'),getenv('3a9b3b3dd2ae1693b3b1340e52ab89d5'),true,['version' => 'v3.1']);
+        $mj = new \Mailjet\Client('f5a38ef45364c7b8057731e348d878dd','3a9b3b3dd2ae1693b3b1340e52ab89d5',true,['version' => 'v3.1']);
         $body = [
                 'Messages' => [
                     [
@@ -38,8 +38,8 @@ class SendService{
                     ]
                 ]
             ];
-            $response = $mj->post(Resources::$Email, ['body' => $body]);
-            $response->success() && var_dump($response->getData());
+            $response = $mj->post(Resources::$Email, ['body' => $body, 'timeout' => 10000,  'connect_timeout' => 10000]);
+            $response->success();
     }    
 
    

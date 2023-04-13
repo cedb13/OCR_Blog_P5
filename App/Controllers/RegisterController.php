@@ -31,13 +31,14 @@ class RegisterController extends Controller{
             $firstName		= htmlspecialchars(strip_tags($_POST['firstName']));
             $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
-            $password		= $_POST['password'];
+            $password       = $_POST['password'];
+            $pwdHash		= password_hash($password, PASSWORD_DEFAULT);
     
             $message['message']= array ('message1'=>"il semblerait que vous ayez déjà un compte?", 'message2'=>"vous êtes bien enregistré", 'message3'=>"Vous n'êtes pas enregistré", );
     
             if($this->userService->getUserByCredential($email, $password) == false && !$this->userService->isEmailExists($email)){
                  //insertion du résultat
-                $register=$this->userService->insertUser($lastName, $firstName, $email, $password);
+                $register=$this->userService->insertUser($lastName, $firstName, $email, $pwdHash);
                 $user= $this->userService->getUserByCredential($email, $password);
     
                 $_SESSION['user'] = $user;

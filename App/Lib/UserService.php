@@ -35,14 +35,12 @@ class UserService{
 
     public function getUserByCredential($email, $password){
         $user=[];
-        $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' AND password = '$password'");
+        $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' ");
         $result->execute();
         $result=$result->fetch();
-        if($result){
+        if($result && password_verify($password, $result['password'])){
             $user= new User($result['idUser'], $result['lastName'], $result['firstName'], $result['email']);
-
         }
-
         return $user;
     }
 
