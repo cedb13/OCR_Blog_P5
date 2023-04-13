@@ -35,21 +35,18 @@ class UserService{
 
     public function getUserByCredential($email, $password){
         $user=[];
-        $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' AND password = '$password'");
+        $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' ");
         $result->execute();
         $result=$result->fetch();
-        if($result){
+        if($result && password_verify($password, $result['password'])){
             $user= new User($result['idUser'], $result['lastName'], $result['firstName'], $result['email']);
-
         }
-
         return $user;
     }
 
     /**
      * to check if the username already exists
      *
-     * @param string $username
      * @return boolean
      */
     public function isUsernameExists($lastName, $firstName){
@@ -58,9 +55,9 @@ class UserService{
         $query->execute();
         $query=$query->fetch();
         if($query){
-            $username = array($lastName, $firstName);
             $result = true;
-        } else {
+        } 
+        else {
             $result = false;
         }
         return $result;
@@ -95,17 +92,18 @@ class UserService{
      */
 
    public function insertUser($lastName, $firstName, $email, $password){
-
         $query = "INSERT INTO user (lastName, firstName, email, password) VALUES ('$lastName','$firstName','$email','$password')";
         $sth = $this->db->getPDO()->prepare($query);
         $sth->execute();
-
-        $newId = $this->db->getPDO()->lastInsertId();
-
     }
 
     /**
      * update user database
+     * @param string $lastName  
+     * @param string $firstName
+     * @param string $email 
+     * @param string $password
+     * @param int $idUser
      * 
      */
     public function updateUser($lastName, $firstName, $email, $password, $idUser){

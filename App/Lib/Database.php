@@ -10,7 +10,6 @@ class Database{
     private $dbPass;
     private $dbHost;
     private $pdo;
-    private static $database;
 
     public function __construct($dbName = 'blog_pro_p5', $dbUser = 'root', $dbPass ='#@root@#', $dbHost = 'localhost'){
         $this->dbName = $dbName;
