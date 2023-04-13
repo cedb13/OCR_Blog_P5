@@ -3,7 +3,6 @@
 namespace App\Lib;
 
 use App\Lib\Database as Db;
-
 use App\Models\Comment;
 
 class CommentService{
@@ -16,7 +15,7 @@ class CommentService{
 
 
    //pour récupérer les commentaires par post, les noms et prénoms de chaque auteur de chaque commentaire
-   /* on fait d'abord un 'preprare' de la requête sql pour éviter les injections */
+   /* on fait un 'preprare' de la requête sql pour éviter les injections */
    public function getCommentValidateByPost(){
         $id= $_GET['id'];
         $results = [];

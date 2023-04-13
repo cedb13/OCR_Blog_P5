@@ -38,7 +38,7 @@ class SendService{
                     ]
                 ]
             ];
-            $response = $mj->post(Resources::$Email, ['body' => $body, 'timeout' => 10000,  'connect_timeout' => 10000]);
+            $response = $mj->post(Resources::$Email, ['body' => $body, 'timeout' => 60000,  'connect_timeout' => 60000]);
             $response->success();
     }    
 

@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Lib\UserService;
 use App\Lib\PostService;
 
-
 class RegisterController extends Controller{
 
     public function show(){
