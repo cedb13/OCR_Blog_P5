@@ -98,7 +98,7 @@
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="subject" name="subject" type="subject" placeholder="Sujet..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="subject" name="subject" type="text" placeholder="Sujet..." required="required" value="" />
                                     <label for="subject">Sujet</label>
                                 </div>
                                 <div class="form-floating">
