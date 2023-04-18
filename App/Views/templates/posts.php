@@ -1,5 +1,5 @@
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/contact-bg.jpg')">
+<header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/contact-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -23,7 +23,7 @@
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Comment Form * *-->
                             <!-- * * * * * * * * * * * * * * *-->
-                                <form id="postForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=registerPost" onsubmit="alert('Votre article a bien été publié.'); return true;">
+                                <form id="postForm" method="post" action="/OCR_Blog_P5/public/index.php?page=post&action=registerPost" onsubmit="alert('Votre article a bien été publié.'); return true;">
                                     <div class="form-floating">
                                         <input class="form-control" id="title" name="title" type="title" placeholder="Entrer un titre..." required="required"  value="" maxlength="80" />
                                         <label for="name">Titre</label>
@@ -48,42 +48,38 @@
     </div>    
     <?php endif; ?>
     <hr ALIGN="center" >
+    <br></br>
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <?php foreach($posts as $post): ?>
-                <h2><a href="<?= $post->url?>"><?= $post->title; ?></a></h2>
+                <h2 style="text-align: center;"><a href="<?= $post->url?>"><?= $post->title; ?></a></h2>
                         <p><p>date de dernière mise à jour : <?= $post->date; ?></p>
-                    <h4><?= $post->caption; ?></h4>
+                    <h4 style="text-align: center;"><?= $post->caption; ?></h4>
                         <p><?= $post->excerpt; ?> ...</p>
                         <p><a href="<?= $post->url?>">Voir la suite</a></p>
                         <?php if($this->userIsConnected()== true):?>
                             <div style="padding: 15px; background-color: grey;border-radius: 30px;">
-                                <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminPost">
-                                    <br></br>
+                                <form style="text-align: center; color: white" id="statusCommentForm" method="post" action="/OCR_Blog_P5/public/index.php?page=post&action=adminPost" onsubmit="alert('Votre choix a bien été pris en compte.'); return true;">
                                     <fieldset>
-                                        <legend>Que voulez-vous faire de cet article?</legend>
+                                        <legend>Que voulez-vous faire de cet article :</legend>
                                             <div class="form-floating">
-                                                <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $post->idPost; ?>" list="names_pattern3_datalist" />
+                                                <input type="hidden" class="form-control" name="idPost" type="text" required="required" value="<?= $post->idPost; ?>" />
                                             </div>
-                                            <div>
-                                                <label for="statusSelect">modifier ou supprimer l'article s'il vous plait:</label>
-                                                <br>
-                                                <select name="statusSelect">
-                                                    <option value="">--Choisir une option merci--</option>
-                                                    <option value="update">modifier</option>
-                                                    <option value="delete">Supprimer</option>
-                                                </select>
-                                            </div>
-                                            <br>
-                                            <div>
-                                                <button class="btn btn-primary text-uppercase " name="statusComment"  type="submit">envoyer</button>
+                                            <div style="text-align: center">
+                                                <label for="statusSelect">Le modifier ou le supprimer ?</label>
+                                                <br></br>   
+                                                    <button class="btn btn-primary text-uppercase" name="statusSelect"  type="submit" value="update">modifier</button>
+                                                    <button class="btn btn-primary text-uppercase" name="statusSelect" type="submit" value="delete">Supprimer</button>
+                                                <br></br>
                                             </div>
                                     </fieldset>
                                 </form>
                                 </div>
                         <?php endif; ?>
+                        <br></br>
                         <hr ALIGN="center" >
+                        <br></br>
                 <?php endforeach; ?>
             </div>
         </div>

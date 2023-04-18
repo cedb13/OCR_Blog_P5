@@ -16,6 +16,11 @@ class UserService{
         $this->db = new Db;
     }
 
+    /**
+     * to get all information for user connected
+     *
+     * @return array $results
+     */
     public function getInfoUser(){
 
         if(isset($_SESSION['user'])){
@@ -33,6 +38,13 @@ class UserService{
        
    }
 
+   /**
+     * to check if the user exist
+     *
+     * @param string $email
+     * @param string $password
+     * @return array $user
+     */
     public function getUserByCredential($email, $password){
         $user=[];
         $result = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email' ");
@@ -47,6 +59,8 @@ class UserService{
     /**
      * to check if the username already exists
      *
+     * @param string $lastName
+     * @param string $firstName
      * @return boolean
      */
     public function isUsernameExists($lastName, $firstName){
@@ -83,14 +97,13 @@ class UserService{
         
 
     /**
-     * insert database user
+     * insert user database
      *
      * @param string $lastName  
      * @param string $firstName
      * @param string $email 
      * @param string $password
      */
-
    public function insertUser($lastName, $firstName, $email, $password){
         $query = "INSERT INTO user (lastName, firstName, email, password) VALUES ('$lastName','$firstName','$email','$password')";
         $sth = $this->db->getPDO()->prepare($query);
@@ -99,6 +112,7 @@ class UserService{
 
     /**
      * update user database
+     * 
      * @param string $lastName  
      * @param string $firstName
      * @param string $email 
@@ -112,6 +126,12 @@ class UserService{
         $sth->execute();
     }
 
+     /**
+     * To get information for each user
+     * 
+     * @return array $results
+     * 
+     */
     public function getAllUser(){
         $results = [];
         $query = $this->db->getPDO()->prepare("SELECT idUser, lastName, firstName, email FROM user ");

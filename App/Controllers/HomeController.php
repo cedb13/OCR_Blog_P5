@@ -59,7 +59,7 @@ class HomeController extends Controller{
             }
             else{
                 $com['com'] = array('com1'=>'Le blog Dev de Cédric','com2'=>'Erreur envoi');
-                header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=home#contact');
+                header('Location:/OCR_Blog_P5/public/index.php?page=home#contact');
             }
     }
 }

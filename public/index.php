@@ -23,7 +23,7 @@ $nameController="App\Controllers\\".ucfirst($page)."Controller";
 
 
 if(!class_exists($nameController) || !method_exists($nameController, $action)){
-    header('Location: http://localhost/OCR_Blog_P5/public/');
+    header('Location: http://localhost/OCR_Blog_P5/public/notFound.php');
  }
 
 $controller = new $nameController;

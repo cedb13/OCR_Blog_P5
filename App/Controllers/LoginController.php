@@ -22,7 +22,7 @@ class LoginController extends Controller{
                 $_SESSION['idUser'] = $_SESSION['user']->idUser;
                 $_SESSION["firstName"] = $_SESSION['user']->firstName;
                 $_SESSION["lastName"] = $_SESSION['user']->lastName;
-                header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
+                header('Location:/OCR_Blog_P5/public/index.php?page=admin');
             }
             else{
                 $errorMessage['errorMessage'] = sprintf('Les informations envoyées ne permettent pas de vous identifier : (email=%s/password=%s)',
@@ -36,12 +36,11 @@ class LoginController extends Controller{
         }
     }
 
-
      public function logout(){
             
         $_SESSION = array(); // on vide les variables de session    
         session_destroy();
-        header('Location:http://localhost/OCR_Blog_P5/public/index.php/home');
+        header('Location:/OCR_Blog_P5/public/index.php/home');
      }   
 
 }

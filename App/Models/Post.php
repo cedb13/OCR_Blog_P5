@@ -18,7 +18,7 @@ class Post extends Model{
     public $firstName;
     public $dateLastUpload;
     
-    //pour récupérer mes derniers posts
+    //for any initialization that the Post object may need before it is used
     public function __construct($idPost=null, $title=null, $caption=null, $contentPost=null, $lastName=null, $firstName=null, $dateLastUpload=null){
         $this->idPost = $idPost;
         $this->title = $title;

@@ -13,7 +13,7 @@ class RegisterController extends Controller{
     public function show(){
         $posts['posts'] = $this->postService->getAllPost();
         $lastPosts['lastPosts'] = $this->postService->getLastPost();
-        $message['message']= array ('message1'=>'Félicitation', 'message2'=>'vous ne correspondez pas au profil');
+        $message['message']= array ('message1'=>'');
         $this->setContents($posts);
         $this->setContents($lastPosts);
         $this->setContents($message);
@@ -23,7 +23,7 @@ class RegisterController extends Controller{
    
     public function register(){
 
-        if(isset($_POST)){
+        if(!empty($_POST)){
             $register = empty($register);
             //On récupère les données du formulaire
             $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
@@ -33,7 +33,6 @@ class RegisterController extends Controller{
             $password       = $_POST['password'];
             $pwdHash		= password_hash($password, PASSWORD_DEFAULT);
     
-            $message['message']= array ('message1'=>"il semblerait que vous ayez déjà un compte?", 'message2'=>"vous êtes bien enregistré", 'message3'=>"Vous n'êtes pas enregistré", );
     
             if($this->userService->getUserByCredential($email, $password) == false && !$this->userService->isEmailExists($email)){
                  //insertion du résultat
@@ -45,15 +44,26 @@ class RegisterController extends Controller{
                 $_SESSION["firstName"] = $_SESSION['user']->firstName;
                 $_SESSION["lastName"] = $_SESSION['user']->lastName;
     
-                header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
+                header('Location:/OCR_Blog_P5/public/index.php?page=admin');
                 
             }
             else{
+
+                $message['message']= array ('message1'=>"il semblerait que vous ayez déjà un compte?");
                 $lastPosts['lastPosts'] = $this->postService->getLastPost();
                 $this->setContents($lastPosts);
                 $this->setContents($message);
                 $this->render('register');
             }
+
+        }
+        else{
+
+            $message['message']= array ('message1'=>"Un problème est survenu, remplissez tous les champs et valider à nouveau");
+            $lastPosts['lastPosts'] = $this->postService->getLastPost();
+            $this->setContents($lastPosts);
+            $this->setContents($message);
+            $this->render('register');
 
         }
 

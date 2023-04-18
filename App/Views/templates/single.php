@@ -1,7 +1,7 @@
 <?php
 foreach($post as $value)
 ?>
-<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/post-bg.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -33,13 +33,13 @@ foreach($post as $value)
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <h4 id="comment" style="text-align: center;">Yes! Pour modifier un article c'est ici</h4>
+                    <h4 id="update" style="text-align: center;">Yes! Pour modifier un article c'est ici</h4>
                         <p>Si vous voulez modifier un article, remplissez les champs et cliquer sur envoyer! </p>
                             <div class="my-5">
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Comment Form * *-->
                             <!-- * * * * * * * * * * * * * * *-->
-                                <form id="postForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminUpdatePost" onsubmit="alert('Votre article a bien été modifié.'); return true;">
+                                <form id="postForm" method="post" action="/OCR_Blog_P5/public/index.php?page=post&action=adminUpdatePost" onsubmit="alert('Votre article a bien été modifié.'); return true;">
                                     <div class="form-floating">
                                             <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
                                     </div>
@@ -83,7 +83,7 @@ foreach($post as $value)
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7" style="text-align: center;">
-                <a href="#comment"><img class="img-fluid" src="http://localhost/OCR_Blog_P5/public/assets/img/post-sample-image.jpg" alt="..." /></a>
+                <a href="#comment"><img class="img-fluid" src="/OCR_Blog_P5/public/assets/img/post-sample-image.jpg" alt="..." /></a>
                 <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
                     <h1 id="comment">Les commentaires :</h1>
                         <br></br>       
@@ -97,7 +97,7 @@ foreach($post as $value)
                                     <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminComment">
                                         Etat du commentaire : <?php if(($comment->validate)==0): ?> non validé
                                         <br></br>
-                                        <fieldset>
+                                        <fieldset style="text-align: center">
                                         <legend>Que voulez-vous faire de ce commentaire?</legend>
                                         <div class="form-floating">
                                             <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
@@ -106,36 +106,28 @@ foreach($post as $value)
                                             <input type="hidden" class="form-control" name="idComment" type="text"  required="required" pattern="^{1,15}$" value="<?= $comment->idComment; ?>" list="names_pattern3_datalist" />
                                         </div>
                                         <div>
-                                        <label for="statusSelect">Valider ou supprimer le commentaire s'il vous plait:</label>
-                                        <br>
-                                        <select name="statusSelect">
-                                            <option value="">--Choisir une option merci--</option>
-                                            <option value="validate">Valider</option>
-                                            <option value="delete">Supprimer</option>
-                                        </select>
+                                            <label for="statusSelect">Valider ou supprimer le commentaire s'il vous plait:</label>
+                                        <br></br>
+                                            <div>
+                                                <button type="submit" class="btn btn-primary text-uppercase" name="statusSelect" value="validate">Valider</button>
+                                                <button type="submit" class="btn btn-primary text-uppercase" name="statusSelect" value="delete">Supprimer</button>
+                                            </div>
                                         </div>
                                         <br>
-                                        <div>
-                                        <button class="btn btn-primary text-uppercase " name="statusComment"  type="submit">envoyer</button>
-                                        </div>
                                         </fieldset>
                                         <?php else: ?>
                                          validé
                                             <br></br>
-                                        <fieldset>
+                                        <fieldset style="text-align: center">
                                         <legend>Que voulez-vous faire de ce commentaire?</legend>
                                         <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idPost" type="text" required="required" value="<?= $value->idPost; ?>"/>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="hidden" class="form-control" name="idComment" type="text"  required="required" pattern="^{1,15}$" value="<?= $comment->idComment; ?>" list="names_pattern3_datalist" />
+                                            <input type="hidden" class="form-control" name="idComment" type="text"  required="required" value="<?= $comment->idComment; ?>"/>
                                         </div>
                                         <div>
-                                            <input type="checkbox" class="delete" name="statusSelect" value="delete">
-                                            <label for="delete">Supprimer le commentaire</label>
-                                        </div>
-                                        <div>
-                                            <button class="btn btn-primary text-uppercase " name="statusComment"  type="submit">envoyer</button>
+                                            <button type="submit" class="btn btn-primary text-uppercase" name="statusSelect" value="delete">Supprimer</button>
                                         </div>
                                         </fieldset>
                                         <?php endif; ?>
@@ -158,7 +150,7 @@ foreach($post as $value)
                         <!-- * * * * * * * * * * * * * * *-->
                         <!-- * * SB Forms Comment Form * *-->
                         <!-- * * * * * * * * * * * * * * *-->
-                            <form id="commentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=registerComment" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
+                            <form id="commentForm" method="post" action="/OCR_Blog_P5/public/index.php?page=post&action=registerComment" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
                                 <div class="form-floating">
                                     <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
                                 </div>

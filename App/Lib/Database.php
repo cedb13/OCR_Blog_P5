@@ -11,6 +11,7 @@ class Database{
     private $dbHost;
     private $pdo;
 
+    // Access attributes to the database 
     public function __construct($dbName = 'blog_pro_p5', $dbUser = 'root', $dbPass ='#@root@#', $dbHost = 'localhost'){
         $this->dbName = $dbName;
         $this->dbUser = $dbUser;

@@ -19,7 +19,7 @@ class Comment extends Model{
     public $post_idPost;
     public $validate; 
     
-    //pour récupérer mes derniers posts
+    //for any initialization that the Comment object may need before it is used
     public function __construct($idComment=null, $title=null, $contentComment=null, $lastName=null, $firstName=null, $datePublication=null, $post_idPost=null, $validate=null){
         $this->idComment = $idComment;  
         $this->title = $title;  

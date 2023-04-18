@@ -19,10 +19,8 @@ class CommentService{
    public function getCommentValidateByPost(){
         $id= $_GET['id'];
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idComment, comment.title, contentComment, comment.lastName, comment.firstName, datePublication, post_idPost, validate, post.idPost 
+        $query = $this->db->getPDO()->prepare("SELECT idComment, comment.title, contentComment, comment.lastName, comment.firstName, DATE_FORMAT(datePublication, '%d/%m/%Y') AS datePublication, post_idPost, validate 
         FROM comment 
-        LEFT JOIN post
-            ON idPost = post_idPost
             WHERE validate = 1 AND post_idPost = '$id'");
         $query->execute();
         $query=$query->fetchall();
@@ -36,10 +34,8 @@ class CommentService{
    public function getAllCommentByPost(){
         $id= $_GET['id'];
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idComment, comment.title, contentComment, comment.lastName, comment.firstName, datePublication, post_idPost, validate, post.idPost 
+        $query = $this->db->getPDO()->prepare("SELECT idComment, comment.title, contentComment, comment.lastName, comment.firstName, DATE_FORMAT(datePublication, '%d/%m/%Y') AS datePublication, post_idPost, validate 
         FROM comment 
-        LEFT JOIN post
-            ON idPost = post_idPost
             WHERE post_idPost = '$id'");
         $query->execute();
         $query=$query->fetchall();

@@ -41,7 +41,7 @@ class AdminController extends Controller{
                 $infoUser=$this->userService->updateUser($lastName, $firstName, $email, $password, $idUser);
             }      
     
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=admin');
+            header('Location:/OCR_Blog_P5/public/index.php?page=admin');
             
         }
     }

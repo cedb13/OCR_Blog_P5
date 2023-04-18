@@ -14,10 +14,10 @@ class PostService{
         $this->db = new Db;
     }
 
-    //pour récupérer tous les posts
+    //to get all posts
     public function getAllPost(){
         $results = [];
-        $query = $this->db->getPDO()->query('SELECT * FROM post');
+        $query = $this->db->getPDO()->query("SELECT idPost, title, caption, contentPost, DATE_FORMAT(dateLastUpload, '%d/%m/%Y') AS dateLastUpload FROM post");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
@@ -27,7 +27,7 @@ class PostService{
         return $results;
     }
 
-    //pour récupérer les 5 derniers posts
+    //to get 5 last posts
     public function getLastPost(){
         $results = [];
         $query = $this->db->getPDO()->query('SELECT * FROM post ORDER BY dateLastUpload DESC LIMIT 5');
@@ -40,14 +40,14 @@ class PostService{
         return $results;
     }
 
-   //pour récupérer un post, le nom et prénom de l'auteur du post
-   /* on fait d'abord un 'preprare' de la requête sql pour éviter les injections */
+   //to get one post, the last name and the first name post author
+   /* we first make a 'preprare'of the sql request to avoid injections */
    public function getUserByPost(){
         $id= $_GET['id'];
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idPost, title, caption, contentPost, lastName, firstName, dateLastUpload, idUser 
+        $query = $this->db->getPDO()->prepare("SELECT idPost, title, caption, contentPost, lastName, firstName, DATE_FORMAT(dateLastUpload, '%d/%m/%Y') AS dateLastUpload, idUser 
         FROM post 
-        LEFT JOIN user 
+        INNER JOIN user 
             ON idUser = user_idUser
             WHERE idPost = '$id'");
         $query->execute();
@@ -59,6 +59,14 @@ class PostService{
         return $results;
    }
 
+   /**
+     * insert to the post database
+     *
+     * @param int $idUser  
+     * @param string $title
+     * @param string $caption 
+     * @param string $contentPost
+     */
    public function insertPost($idUser, $title, $caption, $contentPost){
 
     $query = "INSERT INTO post (user_idUser, title, caption, contentPost, dateLastUpload) VALUES ('$idUser', '$title', '$caption', '$contentPost', '".date('Y-m-d')."' )";
@@ -66,6 +74,16 @@ class PostService{
     $sth->execute();
     }
 
+    /**
+     * update post database
+     * 
+     * @param int $idUser  
+     * @param string $title
+     * @param string $caption 
+     * @param string $contentPost
+     * @param int $idPost
+     * 
+     */
     public function updatePost($idUser, $title, $caption, $contentPost, $idPost){
         
         $query = "UPDATE post  SET user_idUser='$idUser', title='$title', caption='$caption', contentPost='$contentPost', dateLastUpload=DATE( NOW() )  WHERE idPost='$idPost' ";

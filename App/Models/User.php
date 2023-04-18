@@ -14,6 +14,7 @@ class User extends Model {
     public $firstName;
     public $email;
 
+    //for any initialization that the User object may need before it is used
     public function __construct($idUser=null, $lastName=null, $firstName=null, $email=null){
         $this->idUser = $idUser;
         $this->lastName = $lastName;
@@ -50,6 +51,5 @@ class User extends Model {
     public function __toString(){
         return $this->getLastName() . ' '. $this->getFirstName();
      }
-
 
 }

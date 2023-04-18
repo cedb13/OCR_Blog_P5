@@ -1,12 +1,12 @@
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/register-image-2_large.jpg')">
+<header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/register-image-2_large.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                     <h1>Vous souhaitez nous rejoindre?</h1>
                     <h2> C'est ici que ça se passe</h2>
-                    <span class="subheading"><?= $message['message1'] ?></span>
+                    <span class="subheading" style="color: red"><strong><?= $message['message1'] ?></strong></span>
                 </div>
             </div>
         </div>
@@ -19,13 +19,13 @@
                 <h4 id="contact" class="signup-heading">Enregistrement</h4>
                     <p>Veuillez remplir tous les champs merci</p>
                         <div class="my-5">
-                            <form id="sign-up" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('les informations ont été envoyé.');">
+                            <form id="sign-up" method="post" action="/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('les informations ont été envoyé.');">
                                 <div class="form-floating">
-                                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="firstName">Prénom</label>
                                 </div>
                                 <div class="form-floating">

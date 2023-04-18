@@ -1,5 +1,5 @@
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/register-image-2_large.jpg')">
+<header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/register-image-2_large.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -19,7 +19,7 @@
      <section class="conteneur row">
          <article class="text-center col-lg-4" data-sal="slide-right" data-sal-duration="1000">
              <a class="nav-link" href="#btn-info">
-             <img class="rounded-circle" style="width: 50%" src="http://localhost/OCR_Blog_P5/public/assets/img/galerie-item-5-frisco.jpg"></a>
+             <img class="rounded-circle" style="width: 50%" src="/OCR_Blog_P5/public/assets/img/galerie-item-5-frisco.jpg"></a>
                  <h3>Vos informations</h3>
                      <a href="#btn-info" title="Modifier vos informations"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                      <div class="mb-4" style="text-align : left; padding-left: 20%;">
@@ -39,14 +39,14 @@
                                     <div class="modal-body bg-dark">
                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             <div class="myform bg-dark">
-                                                <form name="updateUser" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser" onsubmit="alert('Vos données ont bien été modifiées.'); return true;">
+                                                <form name="updateUser" method="post" action="/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser" onsubmit="alert('Vos données ont bien été modifiées.'); return true;">
                                                     <div class="mb-3 mt-4">    
                                                         <label for="InputlastName" class="form-label">Nom</label>
-                                                        <input class="form-control" name="newLastName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->lastName; ?>" list="names_pattern3_datalist"/>
+                                                        <input class="form-control" name="newLastName" type="text"  pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="<?= $value->lastName; ?>" list="names_pattern3_datalist"/>
                                                     </div>
                                                     <div class="mb-3">    
                                                         <label for="InputlastName" class="form-label">Prénom</label>
-                                                        <input class="form-control" name="newfirstName" type="text"  pattern="^[A-Za-z0-9_]{1,15}$" value="<?= $value->firstName; ?>" list="names_pattern3_datalist"/>
+                                                        <input class="form-control" name="newfirstName" type="text"  pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="<?= $value->firstName; ?>" list="names_pattern3_datalist"/>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="Inputemail" class="form-label">email address</label>
@@ -68,20 +68,20 @@
                     <?php endforeach ?>
          </article>
          <article class="text-center col-lg-4" data-sal="slide-down" data-sal-duration="1000">
-             <a class="nav-link txt-color-2" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">
-             <img class="rounded-circle" style="width: 50%"  href="#btn-post" src="http://localhost/OCR_Blog_P5/public/assets/img/galerie-item-1-boston.jpg"></a>
+             <a class="nav-link txt-color-2" href="/OCR_Blog_P5/public/index.php?page=post&action=list">
+             <img class="rounded-circle" style="width: 50%"  href="#btn-post" src="/OCR_Blog_P5/public/assets/img/galerie-item-1-boston.jpg"></a>
                  <h3>Ajouter-Modifier-Supprimer un post</h3>
                     <a href="#btn-post" title="Ajouter-Modifier-Supprimer un post"><i class="fa fa-info-circle" aria-hidden="true"></i></a>                               
                     <br></br>
                     <br></br>
                     <div id="btn-post">
-                    <a type="button" class="btn btn-dark" style="width: 50%;" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">
+                    <a type="button" class="btn btn-dark" style="width: 50%;" href="/OCR_Blog_P5/public/index.php?page=post&action=list">
                     C'est ici
                     </a>
          </article>
          <article class="text-center col-lg-4" data-sal="slide-down" data-sal-duration="1000">
              <a class="nav-link" href="#btn-comment">
-             <img class="rounded-circle" style="width: 50%"  href="#btn-comment" src="http://localhost/OCR_Blog_P5/public/assets/img/galerie-item-4.jpg"></a>
+             <img class="rounded-circle" style="width: 50%"  href="#btn-comment" src="/OCR_Blog_P5/public/assets/img/galerie-item-4.jpg"></a>
                  <h3>valider-Supprimer un commentaire</h3>
                     <a href="#btn-comment" title="Ajouter-Modifier-Supprimer un post"><i class="fa fa-info-circle" aria-hidden="true"></i></a>                               
                     <br></br>

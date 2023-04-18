@@ -30,8 +30,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">Nos posts en résumé</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/OCR_Blog_P5/public/index.php?page=home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/OCR_Blog_P5/public/index.php?page=post&action=list">Nos posts en résumé</a></li>
                         <li class="nav-item dropdown"><a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos derniers Posts</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <?php 
@@ -41,17 +41,17 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=home#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/OCR_Blog_P5/public/index.php?page=home#contact">Contact</a></li>
                         <?php if($this->userIsConnected()== true):?>
-                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=admin">Administration</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/OCR_Blog_P5/public/index.php?page=admin">Administration</a></li>
                     </ul>
                 </div>
                 <div>
                     <button type="button" class="btn btn-dark" type="submit" name="decoAuth" >
-                        <a href="http://localhost/OCR_Blog_P5/public/index.php?page=login&action=logout" style="color:white;"> DECONEXION </a>
+                        <a href="/OCR_Blog_P5/public/index.php?page=login&action=logout" style="color:white;"> DECONEXION </a>
                     </button>
                         <?php else: ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/OCR_Blog_P5/public/index.php?page=register">Nous rejoindre</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/OCR_Blog_P5/public/index.php?page=register">Nous rejoindre</a></li>
                     </ul>
                 </div>
                 <div>
@@ -64,7 +64,7 @@
                                 <div class="modal-body bg-dark">
                                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                     <div class="myform bg-dark">
-                                        <form name="auth" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=login&action=login">
+                                        <form name="auth" method="post" action="/OCR_Blog_P5/public/index.php?page=login&action=login">
                                             <div class="mb-3 mt-4">
                                                 <label for="Inputemail" class="form-label">email address</label>
                                                 <input type="email" class="form-control" name="email"aria-describedby="emailHelp" required>
@@ -76,7 +76,7 @@
                                             <button type="submit" class="btn btn-light mt-3" name="submit" value="1">LOGIN</button>
                                             <p>Not a member?  
                                                 <button type="submit" class="btn bg-dark" data-bs-dismiss="modal" aria-label="Close">
-                                                    <a href="http://localhost/OCR_Blog_P5/public/index.php?page=register">Rejoignez nous</a>
+                                                    <a href="/OCR_Blog_P5/public/index.php?page=register">Rejoignez nous</a>
                                                 </button>
                                             </p>
                                         </form>
@@ -102,7 +102,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="#!" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
@@ -110,7 +110,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="#!" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -118,7 +118,7 @@
                                 </a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!">
+                                <a href="https://github.com/cedb13/OCR_Blog_P5" target="_blank">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -126,7 +126,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Website Ced Blog 2022</div>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Website Ced Blog 2023</div>
                     </div>
                 </div>
             </div>

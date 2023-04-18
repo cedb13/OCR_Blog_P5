@@ -1,5 +1,5 @@
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/home-bg.jpg')">
+<header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/home-bg.jpg')">
       <div class="container position-relative px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 justify-content-center">
               <div class="col-md-10 col-lg-8 col-xl-7">
@@ -8,7 +8,7 @@
                       
                       <span class="subheading"><?= $com['com2']?></span>
                       <!-- Avatar -->
-                      <img class="subheading profile-avatar" src="http://localhost/OCR_Blog_P5/public/assets/img/Cedric_Bonche.jpg" alt="Avatar de Cédric Bonche">
+                      <img class="subheading profile-avatar" src="/OCR_Blog_P5/public/assets/img/Cedric_Bonche.jpg" alt="Avatar de Cédric Bonche">
                   </div>
               </div>
           </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
   </main>
-  <header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/about-bg.jpg')">
+  <header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/about-bg.jpg')">
       <div class="container position-relative px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 justify-content-center">
               <div class="col-md-10 col-lg-8 col-xl-7">
@@ -53,9 +53,9 @@
               <br><br />
               <div id="cv">
                 <p>Si vous voulez en savoir plus, mon cv est à votre disposition : </p>
-                <embed src="http://localhost/OCR_Blog_P5/public/assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
+                <embed src="/OCR_Blog_P5/public/assets/media/CV-Cedric_Bonche_2021.pdf" width="800" height="500" type="application/pdf"/>
               </div>
-              <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list">articles</a></p>
+              <p>J'espère que cette petite balade dans ma vie vous aura plus. maintenant si nous allions consulter quelques <a href="/OCR_Blog_P5/public/index.php?page=post&action=list">articles</a></p>
               <br />
               <p>Si vous voulez me contacter pour plus d'informations ou encore mieux : participer à ce blog, alors ça ce passe en dessous.<br/>
                 Oui! juste après la grosse image qui est là juste pour faire <a href="#contact">joli </a>... </p>
@@ -64,7 +64,7 @@
   </div>
 
   <!-- Page Header-->
-  <header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/contact-bg.jpg')">
+  <header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/contact-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -84,13 +84,13 @@
                       <h4 id="contact">Yes contact it's here</h4>
                         <p>Vous voulez me contacter ? Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais !</p>
                         <div class="my-5">
-                            <form id="contactForm"  method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=home&action=contactForm">
+                            <form id="contactForm"  method="post" action="/OCR_Blog_P5/public/index.php?page=home&action=contactForm">
                                 <div class="form-floating">
-                                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
+                                    <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="firstName">Prénom</label>
                                 </div>
                                 <div class="form-floating">

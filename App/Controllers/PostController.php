@@ -37,7 +37,6 @@ class PostController extends Controller{
     }
 
     public function list(){
-        
 
         $contents['posts'] = $this->postService->getAllPost();
         $lastPosts['lastPosts'] = $this->postService->getLastPost();
@@ -64,7 +63,7 @@ class PostController extends Controller{
                 $comment=$this->commentService->insertComment($lastName, $firstName, $email, $title, $content, $idPost);
             }
 
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
+            header('Location:/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
         }
 
     }
@@ -74,7 +73,7 @@ class PostController extends Controller{
             $adminComment = empty($adminComment);
             $idPost       = htmlspecialchars($_POST['idPost']);
             $idComment    = htmlspecialchars($_POST['idComment']);
-            $statusSelect = htmlspecialchars(strip_tags($_POST['statusSelect']));
+            $statusSelect = htmlspecialchars($_POST['statusSelect']);
 
             if($idPost>0){
                 if($statusSelect=='validate'){
@@ -86,7 +85,7 @@ class PostController extends Controller{
                 }
             }
 
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
+            header('Location:/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
         }
         
     }
@@ -107,7 +106,7 @@ class PostController extends Controller{
                 $post=$this->postService->insertPost($idUser, $title, $caption, $contentPost);
             }
 
-            header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list');
+            header('Location:/OCR_Blog_P5/public/index.php?page=post&action=list');
         }
         
     }
@@ -118,16 +117,16 @@ class PostController extends Controller{
             $adminPostComment = empty($adminPostComment);
             $adminPost        = empty($adminPost);
             $idPost           = htmlspecialchars($_POST['idPost']);
-            $statusSelect	  = htmlspecialchars(strip_tags($_POST['statusSelect']));
+            $statusSelect = htmlspecialchars($_POST['statusSelect']);
     
             if($idPost>0){
                 if($statusSelect=='update'){
-                    header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
+                    header('Location:/OCR_Blog_P5/public/index.php?page=post&id='.$idPost.'/#update');
                 }
                 elseif($statusSelect=='delete'){
                     $adminPostComment=$this->commentService->deleteAllCommentsByPost($idPost);
                     $adminPost=$this->postService->deletePost($idPost);
-                    header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&action=list');
+                    header('Location:/OCR_Blog_P5/public/index.php?page=post&action=list');
                 }
             }
 
@@ -154,7 +153,7 @@ class PostController extends Controller{
 
         }
                     
-        header('Location:http://localhost/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
+        header('Location:/OCR_Blog_P5/public/index.php?page=post&id='.$idPost);
     }
 
 }
