@@ -8,7 +8,7 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
         <title>Mon CV en ligne</title>
         <!-- Favicons -->
-        <link rel="icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/OCR_Blog_P5/public/assets/favicon.ico" />
         <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -16,14 +16,14 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="http://localhost/OCR_Blog_P5/public/css/styles.css" rel="stylesheet" />
+        <link href="/OCR_Blog_P5/public/css/styles.css" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" type="text/javascript"></script>
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="http://localhost/OCR_Blog_P5/public/index.php/home#cv">Curriculum Vitae</a>
+                <a class="navbar-brand" href="/OCR_Blog_P5/public/index.php/home#cv">Curriculum Vitae</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>

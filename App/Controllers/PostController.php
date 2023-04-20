@@ -117,7 +117,7 @@ class PostController extends Controller{
             $adminPostComment = empty($adminPostComment);
             $adminPost        = empty($adminPost);
             $idPost           = htmlspecialchars($_POST['idPost']);
-            $statusSelect = htmlspecialchars($_POST['statusSelect']);
+            $statusSelect     = htmlspecialchars($_POST['statusSelect']);
     
             if($idPost>0){
                 if($statusSelect=='update'){

@@ -18,19 +18,12 @@ class Controller{
     public $contents = array();
 
     public function __construct(){
-<<<<<<< HEAD
-
-
-        $this->viewPath = '/App/views/templates';
-
-=======
         session_start();
         $this->userService = new UserService;
         $this->postService = new PostService;
         $this->commentService = new CommentService;
         $this->sendService = new SendService;
         $this->viewPath = '/App/Views/templates';
->>>>>>> main
     }
 
   protected function loadModel($modelName){

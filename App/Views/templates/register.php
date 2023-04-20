@@ -21,18 +21,22 @@
                         <div class="my-5">
                             <form id="sign-up" method="post" action="/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('les informations ont été envoyé.');">
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*utiliser que des lettres et des chiffres</i></legend>
                                     <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="lastName">Nom</label>
                                 </div>
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*utiliser que des lettres et des chiffres</i></legend>
                                     <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>
                                     <label for="firstName">Prénom</label>
                                 </div>
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*écrire au format : username@ndd.domain</i></legend>
                                     <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required/>
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*Au minimum : 8 caractères, un caractère spécial, une majuscule, un chiffre</i></legend>
                                     <input class="form-control" id="signup-password" name="password" type="password" placeholder="Entrer un mot de pass..." required="required" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" value="" list="passwords_pattern1_datalist"/>
                                     <label for="password">Password</label>
                                 </div>

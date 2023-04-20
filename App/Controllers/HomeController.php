@@ -14,10 +14,6 @@ use App\Lib\SendService;
 
 class HomeController extends Controller{
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     public function show(){
     
         $com['com']=array('com1'=>'Le blog Dev de Cédric','com2'=>'Informatique et développement');
