@@ -3,8 +3,19 @@ Creation of a Model-View-Controller blog as part of the Application Developer tr
 ## Environment
 Server software => Apache 2.4.52 Database management system => Mysql 8.0.31 Interface database management => Phpmyadmin 5.1 Main code language code => PHP 8.1.2
 ### Install project
-clone the repository : https://github.com/cedb13/OCR_Blog_P5.git
+- Advice before local installation:
+In a folder www/myProject 
+folder -> add an info.php file containing the following code
+```<?php
+ 
+phpinfo();
+ 
+?>```
+This will allow you to check your php configuration.
+- Clone the repository : https://github.com/cedb13/OCR_Blog_P5.git
+In this same folder add the cloning of the github repository with the command line : ```git clone https://github.com/cedb13/OCR_Blog_P5.git ```
 or go to https://github.com/cedb13/OCR_Blog_P5
+If you need help you can consult: https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository
 ### CODACY
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/07d19140a08048aa98978c0bd1c81a5b)](https://app.codacy.com/gh/cedb13/OCR_Blog_P5/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 

@@ -82,7 +82,7 @@
          <article class="text-center col-lg-4" data-sal="slide-down" data-sal-duration="1000">
              <a class="nav-link" href="#btn-comment">
              <img class="rounded-circle" style="width: 50%"  href="#btn-comment" src="/OCR_Blog_P5/public/assets/img/galerie-item-4.jpg"></a>
-                 <h3>valider-Supprimer un commentaire</h3>
+                 <h3>Valider-Supprimer un commentaire</h3>
                     <a href="#btn-comment" title="Ajouter-Modifier-Supprimer un post"><i class="fa fa-info-circle" aria-hidden="true"></i></a>                               
                     <br></br>
                     <br></br>
