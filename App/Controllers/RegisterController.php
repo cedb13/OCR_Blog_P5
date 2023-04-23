@@ -23,7 +23,8 @@ class RegisterController extends Controller{
    
     public function register(){
 
-        if(!empty($_POST)){
+        $key = "#A7752-Z4631-C94227#";
+        if(!empty($_POST) && $_POST['key']==$key){
             $register = empty($register);
             //On récupère les données du formulaire
             $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
@@ -59,7 +60,7 @@ class RegisterController extends Controller{
         }
         else{
 
-            $message['message']= array ('message1'=>"Un problème est survenu, remplissez tous les champs et valider à nouveau");
+            $message['message']= array ('message1'=>"Un problème est survenu, vérifiez votre clé, remplissez tous les champs et valider à nouveau");
             $lastPosts['lastPosts'] = $this->postService->getLastPost();
             $this->setContents($lastPosts);
             $this->setContents($message);

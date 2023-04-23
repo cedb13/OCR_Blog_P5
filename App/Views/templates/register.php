@@ -16,10 +16,15 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <h4 id="contact" class="signup-heading">Enregistrement</h4>
-                    <p>Veuillez remplir tous les champs merci</p>
+                <h4 id="enregistrement" class="signup-heading">Enregistrement</h4>
+                    <p>Veuillez vous munir de la clé qui vous a été envoyé et remplir tous les champs merci</p>
                         <div class="my-5">
                             <form id="sign-up" method="post" action="/OCR_Blog_P5/public/index.php?page=register&action=register" onsubmit="alert('les informations ont été envoyé.');">
+                                <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*entrez la clé ici</i></legend>
+                                    <input class="form-control" id="key" name="key" type="text" placeholder="Entrer la clé..." required="required"  value=""/>
+                                    <label for="lastName">Votre clé d'enregistrement</label>
+                                </div>
                                 <div class="form-floating">
                                     <legend style="font-size: 12px"><i>*utiliser que des lettres et des chiffres</i></legend>
                                     <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="" list="names_pattern3_datalist"/>

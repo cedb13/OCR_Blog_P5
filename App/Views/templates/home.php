@@ -43,12 +43,31 @@
           <div class="col-md-10 col-lg-8 col-xl-7">
               <h4>Mon expérience : </h4>
               <p>J'ai commencé dans l'animation socio-culturel :</p>
-              <p>J’ai pu travailler avec divers publics (âges, profils sociologiques variés…), J’ai organisé, planifié, géré, budgétisé et évalué tout au long de mon activité professionnelle</p>
-              <p>Et comme tout métier en relation avec un public, il faut communiquer ... Et dans le social, à l'époque, à part faire des collages et ou au mieux des montages pour imprimer des flyers, peu d'outils de communications étaient à notre portée... Mais internet commençait à ce démocratiser, les foyers commençaient à s'informatiser. Alors l'utilisation de blog en ligne c'est avéré une bonne solution pour diffuser de l'information auprès de nos publics. Ce qui était bien c'est que l'on pouvait traficotter le html de ces blogs, en tous cas ils proposaient d'entrer notre contenu soit en mode texte soit en mode html c'est là que j'ai fait mes premières armes côté front. Oui par le passé, à la fac, j'ai eu fait du code coté back pour mettre en place des fonctions mathématiques, me demandez pas qu'elle langage on utilisait je m'en rappel plus et c'était sur une courte durée.</p>
-              <p>Vous l'aurez compris, l'informatique au niveau codage m'a toujours titillé et pourtant je n'osais passer le cap, n'étant pas d'une génération ou l'ordianteur était de mise à la maison, c'est au travers de mes études puis de mes lieux de travails que j'ai pu accéder a cet outil.</p>
-              <p>Mes premiers ordinateurs : <br> Lorsque j'ai pu acquérir pour la première fois un ordianteur, les programmes étaient sur disquette... je vous fait pas de dessin, récupérer des logiciels étaient digne d'Indiana Jones, mon premier logiciel, donc sur disquette (Je rappel qu'à cette époque on parlait en ko) était un logiciel pour faire de la musique, vous vous rendez compte un logiciel qui dépaçait à peine les 2 Mo et ça marchait ... </p>
+              <p>J’ai pu travailler avec divers publics (âges, profils sociologiques variés…),
+                 j’ai organisé, planifié, géré, budgétisé et évalué tout au long de mon activité professionnelle</p>
+              <p>Et comme tout métier en relation avec un public, il faut communiquer ... 
+                Et dans le social, à l'époque, à part faire des collages et ou au mieux des montages pour imprimer des flyers,
+                 peu d'outils de communications étaient à notre portée... Mais internet commençait à ce démocratiser,
+                  les foyers commençaient à s'informatiser. 
+                  Alors l'utilisation de blog en ligne c'est avéré une bonne solution pour diffuser de l'information auprès de nos publics.
+                   Ce qui était bien c'est que l'on pouvait traficotter le html de ces blogs,
+                    en tous cas ils proposaient d'entrer notre contenu soit en mode texte soit en mode html c'est là que j'ai fait mes premières armes côté front. Oui par le passé, à la fac, j'ai eu fait du code coté back pour mettre en place des fonctions mathématiques, me demandez pas qu'elle langage on utilisait je m'en rappel plus et c'était sur une courte durée.</p>
+              <p>Vous l'aurez compris, l'informatique au niveau codage m'a toujours titillé et pourtant je n'osais passer le cap,
+                 n'étant pas d'une génération ou l'ordianteur était de mise à la maison,
+                  c'est au travers de mes études puis de mes lieux de travails que j'ai pu accéder a cet outil.</p>
+              <p>Mes premiers ordinateurs : 
+                <br> Lorsque j'ai pu acquérir pour la première fois un ordianteur,
+                 les programmes étaient sur disquette... 
+                 je vous fait pas de dessin, récupérer des logiciels étaient digne d'Indiana Jones, mon premier logiciel,
+                  donc sur disquette (Je rappel qu'à cette époque on parlait en ko) était un logiciel pour faire de la musique,
+                   vous vous rendez compte un logiciel qui dépassait à peine les 2 Mo et ça marchait ... </p>
               <p>L'arrivé du CD Rom dans nos foyers :</p>
-              <p>Ce qu'il faut bien comprendre c'est qu'entre le moment ou une évolution technologique apparaissait, ce mettait en place dans l'industrie et arrive chez nous, c'est en dizaines d'années qu'il fallait compter.<br>Ah! mes premiers logiciels craqués( PAS BIEN!), faut dire qu'à l'époque c'était pas aussi coriace qu'aujourd'hui, une clef pouvait être partagé par tous, les fabricants n'étaient pas connectés et ou reliés à tous comme aujourd'hui pour tracer leur produits, par contre il fallait ce trouver un cdrom compatible selon là ou vous deviez le graver, on parlait en Mo, le système de défense des fabriquants étaient entre autre le poid de leur logiciel... De nos jours, dans tous les cas, selon vos besoins, l'open source est de règle ou bien des abonnements pas excessif sont possibles, alors évitons de nous mettre hors la loi.</p>
+              <p>Ce qu'il faut bien comprendre c'est qu'entre le moment ou une évolution technologique apparaissait,
+                 ce mettait en place dans l'industrie et arrive chez nous,
+                  c'est en dizaines d'années qu'il fallait compter.
+                  <br>Ah! mes premiers logiciels, faut dire qu'à l'époque c'était pas aussi coriace qu'aujourd'hui, une clef pouvait être partagé par tous,
+                   la législation était encore floue,
+                    par contre il fallait ce trouver un cdrom compatible selon là ou vous deviez le graver, on parlait en Mo ... De nos jours, dans tous les cas, selon vos besoins, l'open source est de règle ou bien des abonnements pas excessif sont possibles, alors évitons de nous mettre hors la loi.</p>
               <p>C'est pourquoi j'ai toujours réver de créer mes propres programmes, applications pour répondre aux besoins des uns et des autres.</p>
               <br><br />
               <div id="cv">
