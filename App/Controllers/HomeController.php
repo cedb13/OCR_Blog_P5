@@ -36,7 +36,7 @@ class HomeController extends Controller{
     public function contactForm(){
             
             $send = empty($send);
-            if (!empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message']) ) {
+            if (!empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message']) ){
                 
                 $lastName       = htmlspecialchars($_POST['lastName']);
                 $firstName       = htmlspecialchars($_POST['firstName']);
@@ -44,7 +44,6 @@ class HomeController extends Controller{
                 $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
                 $subject        = htmlspecialchars($_POST['subject']);
                 $message        = htmlspecialchars($_POST['message']);
-
 
                 $send = $this->sendService->sendMail($subject, $email, $lastName, $firstName, $message);
                 $com['com'] = array('com1'=>'Le blog Dev de Cédric','com2'=>'Votre message a bien été envoyé');

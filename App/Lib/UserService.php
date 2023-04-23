@@ -10,7 +10,7 @@ class UserService{
 
     private $db;
     public const PASSWORD_MIN_LEN = '8';
-    public const USER_MIN_KEY = ['last_name','first_name', 'email', 'password'];
+    public const USER_MIN_KEY = ['lastName','firstName', 'email', 'password'];
 
     public function __construct(){
         $this->db = new Db;
@@ -61,7 +61,7 @@ class UserService{
      *
      * @param string $lastName
      * @param string $firstName
-     * @return boolean
+     * @return bool
      */
     public function isUsernameExists($lastName, $firstName){
 
@@ -81,7 +81,7 @@ class UserService{
      * to check if the email already exists
      *
      * @param string $email
-     * @return boolean
+     * @return bool
      */
     public function isEmailExists($email){
         $query = $this->db->getPDO()->query("SELECT * FROM user WHERE email = '$email'");

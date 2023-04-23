@@ -10,7 +10,7 @@ class LoginController extends Controller{
 
     public function login() {
 
-        if (isset($_POST['email']) && isset($_POST['password'])) {
+        if (isset($_POST['email']) && isset($_POST['password'])){
             $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $email = filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
             $password = $_POST['password'];

@@ -43,8 +43,7 @@ class Model{
             ",  get_called_class());
     }
 
-    public function __get($key)
-    {
+    public function __get($key){
         $method = 'get' . ucfirst($key);
         $this->$key = $this->$method();
         return $this->$key;
