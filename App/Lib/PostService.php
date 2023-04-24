@@ -17,7 +17,7 @@ class PostService{
     //to get all posts
     public function getAllPost(){
         $results = [];
-        $query = $this->db->getPDO()->query("SELECT idPost, title, caption, contentPost, DATE_FORMAT(dateLastUpload, '%d/%m/%Y') AS dateLastUpload FROM post");
+        $query = $this->db->getPDO()->query("SELECT idPost, title, caption, contentPost, dateLastUpload FROM post ORDER BY dateLastUpload DESC");
         $query->execute();
         $query=$query->fetchall();
         foreach($query as $data){
@@ -45,7 +45,7 @@ class PostService{
    public function getUserByPost(){
         $id= $_GET['id'];
         $results = [];
-        $query = $this->db->getPDO()->prepare("SELECT idPost, title, caption, contentPost, lastName, firstName, DATE_FORMAT(dateLastUpload, '%d/%m/%Y') AS dateLastUpload, idUser 
+        $query = $this->db->getPDO()->prepare("SELECT idPost, title, caption, contentPost, lastName, firstName, dateLastUpload, idUser 
         FROM post 
         INNER JOIN user 
             ON idUser = user_idUser

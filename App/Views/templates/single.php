@@ -11,7 +11,7 @@ foreach($post as $value)
                     <span class="meta">
                         Posté par
                         <a href="#"><?= $value->firstName; ?> <?= $value->lastName; ?></a>
-                        et mis à jour le <?= $value->dateLastUpload; ?>
+                        et mis à jour le <?= date('d-m-Y', strtotime($value->dateLastUpload)); ?>
                     </span>
                 </div>
             </div>
@@ -91,7 +91,7 @@ foreach($post as $value)
                             <h2>"<?= $comment->title; ?>"</h2>
                                 <p><em>De <?= $comment->lastName; ?> <?= $comment->firstName; ?></em></p>
                                 <p style="white-space: pre-wrap; text-align : justify;"><?= $comment->content; ?></p>
-                                <p><em>Commentaire fait le :  <?= $comment->date; ?></em></p>
+                                <p><em>Commentaire fait le :  <?= date('d-m-Y', strtotime($comment->date)); ?></em></p>
                                 <?php if($this->userIsConnected()== true):?>
                                 <div style="padding: 15px; background-color: grey;border-radius: 30px;">
                                     <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminComment">

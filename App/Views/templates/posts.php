@@ -54,7 +54,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <?php foreach($posts as $post): ?>
                 <h2 style="text-align: center;"><a href="<?= $post->url?>"><?= $post->title; ?></a></h2>
-                        <p><p>date de dernière mise à jour : <?= $post->date; ?></p>
+                        <p><p>date de dernière mise à jour : <?= date('d-m-Y', strtotime($post->date)); ?></p>
                     <h4 style="text-align: center;"><?= $post->caption; ?></h4>
                         <p><?= $post->excerpt; ?> ...</p>
                         <p><a href="<?= $post->url?>">Voir la suite</a></p>
