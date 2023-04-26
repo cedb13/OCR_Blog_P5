@@ -12,13 +12,14 @@ class Database{
     private $pdo;
 
     // Access attributes to the database 
-    public function __construct($dbName = 'blog_pro_p5', $dbUser = 'root', $dbPass ='#@root@#', $dbHost = 'localhost'){
+    public function __construct($dbName = DB_NAME , $dbUser= DB_USER, $dbPass= DB_PASS , $dbHost= DB_HOST){
         $this->dbName = $dbName;
         $this->dbUser = $dbUser;
         $this->dbPass = $dbPass;
         $this->dbHost = $dbHost;
-        $this->pdo = new PDO('mysql:dbname=blog_pro_p5;host=localhost', 'root', '#@root@#');
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo = new PDO("mysql:dbname={$dbName};host={$dbHost}", $dbUser, $dbPass);
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+
     }
 
     public function getPDO(){

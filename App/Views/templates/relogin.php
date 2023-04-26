@@ -1,5 +1,5 @@
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('http://localhost/OCR_Blog_P5/public/assets/img/register-image-2_large.jpg')">
+<header class="masthead" style="background-image: url('/OCR_Blog_P5/public/assets/img/register-image-2_large.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -14,7 +14,7 @@
 </header>
 <main>
     <div class="myform bg-dark">
-        <form name="auth" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=login&action=login">
+        <form name="auth" method="post" action="/OCR_Blog_P5/public/index.php?page=login&action=login">
             <div id='login' class="mb-3 mt-4">
                 <label for="Inputemail" class="form-label">email address</label>
                 <input type="email" class="form-control" name="email"aria-describedby="emailHelp" required>
@@ -26,7 +26,7 @@
             <button type="submit" class="btn btn-light mt-3" name="submit" value="1">LOGIN</button>
             <p>Not a member?  
                 <button type="submit" class="btn bg-dark" data-bs-dismiss="modal" aria-label="Close">
-                    <a href="http://localhost/OCR_Blog_P5/public/index.php?page=register">Rejoignez nous</a>
+                    <a href="/OCR_Blog_P5/public/index.php?page=register">Rejoignez nous</a>
                 </button>
             </p>
         </form>

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-require_once('../api/mailjet-apiv3-php-no-composer-master/vendor/autoload.php');
+require_once('../vendor/autoload.php');
 
 use App\Controllers\Controller as Controller;
 use App\Models\Post;

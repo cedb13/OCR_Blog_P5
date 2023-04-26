@@ -94,7 +94,7 @@ foreach($post as $value)
                                 <p><em>Commentaire fait le :  <?= date('d-m-Y', strtotime($comment->date)); ?></em></p>
                                 <?php if($this->userIsConnected()== true):?>
                                 <div style="padding: 15px; background-color: grey;border-radius: 30px;">
-                                    <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="http://localhost/OCR_Blog_P5/public/index.php?page=post&action=adminComment">
+                                    <form style="text-align: left; color: white" id="statusCommentForm" method="post" action="/OCR_Blog_P5/public/index.php?page=post&action=adminComment">
                                         Etat du commentaire : <?php if(($comment->validate)==0): ?> non validé
                                         <br></br>
                                         <fieldset style="text-align: center">

@@ -9,7 +9,7 @@
         <title>Mon CV en ligne</title>
         <!-- Favicons -->
         <link rel="icon" type="image/x-icon" href="/OCR_Blog_P5/public/assets/favicon.ico" />
-        <link rel="shortcut icon" type="image/x-icon" href="http://localhost/OCR_Blog_P5/public/assets/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="/OCR_Blog_P5/public/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -166,7 +166,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="http://localhost/OCR_Blog_P5/public/js/scripts.js"></script>
+        <script src="/OCR_Blog_P5/public/js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

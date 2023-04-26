@@ -2,7 +2,7 @@
 
 namespace App\Lib;
 
-require_once('../api/mailjet-apiv3-php-no-composer-master/vendor/autoload.php');
+require_once('../vendor/autoload.php');
 
 use \Mailjet\Resources;
 
@@ -20,17 +20,17 @@ class SendService{
      */
     public function sendMail($subject, $email, $lastName, $firstName, $message){
         $username = $lastName.' '.$firstName;
-        $mj = new \Mailjet\Client('f5a38ef45364c7b8057731e348d878dd','3a9b3b3dd2ae1693b3b1340e52ab89d5',true,['version' => 'v3.1']);
+        $mj = new \Mailjet\Client('5e18944f6f199989198715d38e49e682','3bea1e70778da32c0b3ce910be3a48eb',true,['version' => 'v3.1']);
         $body = [
                 'Messages' => [
                     [
                         'From' => [
-                        'Email' => "cedric.bonche@gmail.com",
+                        'Email' => "oldced.devtest@gmail.com",
                         'Name' => "Cedric"
                         ],
                         'To' => [
                             [
-                            'Email' => "cedric.bonche@gmail.com",
+                            'Email' => "oldced.devtest@gmail.com",
                             'Name' => "Cedric"
                             ]
                         ],

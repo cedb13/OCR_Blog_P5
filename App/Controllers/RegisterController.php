@@ -23,7 +23,8 @@ class RegisterController extends Controller{
    
     public function register(){
 
-        $key = "#A7752-Z4631-C94227#";
+        $key = REGISTER_KEY;
+
         if(!empty($_POST) && $_POST['key']==$key){
             $register = empty($register);
             //On récupère les données du formulaire
