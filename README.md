@@ -41,7 +41,7 @@ This will allow you to check your php configuration.
 At the root, (for example : www folder), add the github repository cloning with the command line : ```git clone https://github.com/cedb13/OCR_Blog_P5.git ```  
 If you need help you can consult: https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository
 ### c- Install Database :
-1- create a mysql database and insert blog_pro_p5.sql  
+1- create a mysql database and insert [blog_pro_p5.sql](https://github.com/cedb13/OCR_Blog_P5/blob/main/blog_pro_p5.sql)  
 2- In the public folder, you will find config.php :  
 -> replace with the configuration elements of your database in this file
 ```
