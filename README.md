@@ -14,7 +14,10 @@ III. **Architecture and functionalities**
 # OCR_Blog_P5  
 Creation of a Model-View-Controller blog as part of the Application Developer training - PHP / Symfony OpenClassRooms
 ## I- Environment  
-Server software => Apache 2.4.52 Database management system => Mysql 8.0.31 Interface database management => Phpmyadmin 5.1 Main code language code => PHP 8.1.2
+Server software => Apache 2.4.52   
+Database management system => Mysql 8.0.31  
+Interface database management => Phpmyadmin 5.1  
+Main code language code => PHP 8.1.2
 ------------------------------------------------------------------
 ## II- Install project
 ### a- Conditions and important information for the installation :
@@ -34,11 +37,11 @@ This will allow you to check your php configuration.
 
 - Our project uses bootstrap, for js and css, a part is local and another one is online that's why it's important that you are connected to internet.
 ### b- How to retrieve the project :
-- Clone the repository : https://github.com/cedb13/OCR_Blog_P5.git
+- Clone the repository : https://github.com/cedb13/OCR_Blog_P5.git  
 At the root, (for example : www folder), add the github repository cloning with the command line : ```git clone https://github.com/cedb13/OCR_Blog_P5.git ```  
 If you need help you can consult: https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository
 ### c- Install Database :
-1- create a mysql database and insert blog_pro_p5.sql 
+1- create a mysql database and insert blog_pro_p5.sql  
 2- In the public folder, you will find config.php :  
 -> replace with the configuration elements of your database in this file
 ```
@@ -56,7 +59,7 @@ change the information by your own.
 Check your host and change the port if necessary.
 
 ### d- Create an user admin :
-In the public folder, you will find config.php : take or change the REGISTER_KEY and go in the blog by your browser at the "NOUS REJOINDRE" page for can register, enter your key and your information, click on "ENREGISTRER".
+In the public folder, you will find config.php : take or change the REGISTER_KEY and go in the blog by your browser at the "NOUS REJOINDRE" page for can register, enter your key and your information, click on "ENREGISTRER".  
 After if you want, you can go in your interface Mysql for give you allright.
 
 ### e- CODACY
@@ -88,6 +91,7 @@ https://documentation.mailjet.com/hc/fr/articles/360042908593-Guide-de-d%C3%A9ma
 ### App folder
 ### public folder
 
+---------------------------
 ### In App folder we find :
 #### Controllers folder : Party controllers of our application
 - Controller.php : Main/parent controller
