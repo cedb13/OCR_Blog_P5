@@ -10,7 +10,7 @@ II. **Install project**
     f. MailJet  
 III. **Architecture and functionalities**  
 - _MailJet README DOCUMENTATION_   
---------------------------------------------------------------------------
+------------------------------------------------------------------
 # OCR_Blog_P5  
 Creation of a Model-View-Controller blog as part of the Application Developer training - PHP / Symfony OpenClassRooms
 ## I- Environment  
@@ -19,7 +19,8 @@ Database management system => Mysql 8.0.31
 Interface database management => Phpmyadmin 5.1  
 Main code language code => PHP 8.1.2
 ------------------------------------------------------------------
-## II- Install project
+## II- Install project  
+
 ### a- Conditions and important information for the installation :
 - Install the project at the **Root**: 
 **Be careful** during the installation to keep the name OCR_BLOG_P5 of the project
@@ -35,13 +36,15 @@ phpinfo();
 ```
 This will allow you to check your php configuration.
 
-- Our project uses bootstrap, for js and css, a part is local and another one is online that's why it's important that you are connected to internet.
+- Our project uses bootstrap, for js and css, a part is local and another one is online that's why it's important that you are connected to internet.  
+  
 ### b- How to retrieve the project :
 - Clone the repository : https://github.com/cedb13/OCR_Blog_P5.git  
 At the root, (for example : www folder), add the github repository cloning with the command line : ```git clone https://github.com/cedb13/OCR_Blog_P5.git ```  
-If you need help you can consult: https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository
+If you need help you can consult: https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository  
+  
 ### c- Install Database :
-1- create a mysql database and insert [blog_pro_p5.sql](https://github.com/cedb13/OCR_Blog_P5/blob/main/blog_pro_p5.sql)  
+1- Keep the name **blog_pro_p5** for to create a mysql database and insert [blog_pro_p5.sql](https://github.com/cedb13/OCR_Blog_P5/blob/main/blog_pro_p5.sql)  
 2- In the public folder, you will find config.php :  
 -> replace with the configuration elements of your database in this file
 ```
@@ -50,8 +53,8 @@ define('DB_USER', 'expleUser') ; // the user name of the MySQL database
 define('DB_PASS', 'explePass') ; // the password of the MySQL database
 define('DB_HOST', 'expleHost') ; // the host of your project
 ```
-change the information by your own.
-
+change the information by your own.  
+  
 **Warning**: in the file blog_pro_p5.sql we have line 5 
 ```
 -- Host: localhost:3306
