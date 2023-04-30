@@ -33,8 +33,14 @@ class SendService{
                             ]
                         ],
                         'Subject' => "$subject",
-                        'TextPart' => "$email, $username, $message",
-
+                        'TextPart' => "
+                        Email envoyé de : $email, 
+                        Par utilisateur : $username,
+                        Message : $message",
+                        'HTMLPart' => "<h3>Email envoyé de : $email<br>
+                        Par l'utilisateur : $username</h3><br>
+                        <p><strong>Message :</strong><br> $message</p>",
+                        'CustomID' => "AppGettingStartedTest"
                     ]
                 ]
             ];
