@@ -28,8 +28,8 @@ class RegisterController extends Controller{
         if(!empty($_POST) && $_POST['key']==$key){
             $register = empty($register);
             //On récupère les données du formulaire
-            $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
-            $firstName		= htmlspecialchars(strip_tags($_POST['firstName']));
+            $lastName		= htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['lastName'])));
+            $firstName		= htmlspecialchars(strip_tags(str_replace("'", "\'",$_POST['firstName'])));
             $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
             $password       = $_POST['password'];

@@ -51,12 +51,12 @@ class PostController extends Controller{
             $comment = empty($comment);
             //On récupère les données du formulaire
             $idPost         = htmlspecialchars($_POST['idPost']);
-            $lastName		= htmlspecialchars(strip_tags($_POST['lastName']));
-            $firstName		= htmlspecialchars(strip_tags($_POST['firstName']));
+            $lastName		= htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['lastName'])));
+            $firstName		= htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['firstName'])));
             $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
-            $title          = htmlspecialchars(strip_tags($_POST['title']));
-            $content        = htmlspecialchars(strip_tags($_POST['contentComment']));
+            $title          = htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['title'])));
+            $content        = htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['contentComment'])));
 
             if($idPost>0){
                 //insertion du résultat
@@ -97,9 +97,9 @@ class PostController extends Controller{
             $post = empty($post);
             //On récupère les données du formulaire
             $idUser		    = $_SESSION['idUser'];
-            $title          = htmlspecialchars(strip_tags($_POST['title']));
-            $caption        = htmlspecialchars(strip_tags($_POST['caption']));
-            $contentPost    = htmlspecialchars(strip_tags($_POST['contentPost']));
+            $title          = htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['title'])));
+            $caption        = htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['caption'])));
+            $contentPost    = htmlspecialchars(strip_tags(str_replace("'", "\'",$_POST['contentPost'])));
             
             if($idUser>0){
                 //insertion du résultat
@@ -139,9 +139,9 @@ class PostController extends Controller{
         if(isset($_POST)){
             $adminPost      = empty($adminPost);
             $idPost         = htmlspecialchars($_POST['idPost']);
-            $title          = htmlspecialchars(strip_tags($_POST['title']));
-            $caption        = htmlspecialchars(strip_tags($_POST['caption']));
-            $contentPost    = htmlspecialchars(strip_tags($_POST['contentPost']));
+            $title          = htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['title'])));
+            $caption        = htmlspecialchars(strip_tags(str_replace("'", "\'", $_POST['caption'])));
+            $contentPost    = htmlspecialchars(strip_tags(str_replace("'", "\'",$_POST['contentPost'])));
             $authorSelect	= htmlspecialchars(strip_tags($_POST['authorSelect']));
             $idUser         = $_SESSION['idUser'];
     

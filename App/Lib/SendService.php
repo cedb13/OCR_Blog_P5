@@ -2,8 +2,6 @@
 
 namespace App\Lib;
 
-require_once('../vendor/autoload.php');
-
 use \Mailjet\Resources;
 
 class SendService{

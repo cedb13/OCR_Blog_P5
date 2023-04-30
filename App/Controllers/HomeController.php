@@ -39,11 +39,11 @@ class HomeController extends Controller{
             if (!empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message']) ){
                 
                 $lastName       = htmlspecialchars($_POST['lastName']);
-                $firstName       = htmlspecialchars($_POST['firstName']);
+                $firstName      = htmlspecialchars($_POST['firstName']);
                 $emailSanitize	= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
                 $email			= filter_var($emailSanitize, FILTER_VALIDATE_EMAIL);
-                $subject        = htmlspecialchars($_POST['subject']);
-                $message        = htmlspecialchars($_POST['message']);
+                $subject        = htmlspecialchars(strip_tags($_POST['subject']));
+                $message        = htmlspecialchars(strip_tags($_POST['message']));
 
                 $send = $this->sendService->sendMail($subject, $email, $lastName, $firstName, $message);
                 $com['com'] = array('com1'=>'Le blog Dev de Cédric','com2'=>'Votre message a bien été envoyé');
