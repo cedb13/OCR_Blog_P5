@@ -14,14 +14,15 @@ III. **Architecture and functionalities**
 # OCR_Blog_P5  
 Creation of a Model-View-Controller blog as part of the Application Developer training - PHP / Symfony OpenClassRooms
 ## I- Environment  
-Server software => Apache 2.4.52   
-Database management system => Mysql 8.0.31  
-Interface database management => Phpmyadmin 5.1  
-Main code language code => PHP 8.1.2
+    . Server software => Apache 2.4.52   
+    . Database management system => Mysql 8.0.31  
+    . Interface database management => Phpmyadmin 5.1  
+    . Main code language code => PHP 8.1.2
 ------------------------------------------------------------------
 ## II- Install project  
 
 ### a- Conditions and important information for the installation :
+- Don't use a PHP language higher than 8.1.2
 - Install the project at the **Root**: 
 **Be careful** during the installation to keep the name OCR_BLOG_P5 of the project
 
@@ -45,7 +46,7 @@ If you need help you can consult: https://docs.github.com/fr/repositories/creati
   
 ### c- Install Database :
 1- Keep the name **blog_pro_p5** for to create a mysql database and insert [blog_pro_p5.sql](https://github.com/cedb13/OCR_Blog_P5/blob/main/blog_pro_p5.sql)  
-2- In the public folder, you will find config.php :  
+2- In the public folder, you will find config.php : /OCR_Blog_P5/public/config.php  
 -> replace with the configuration elements of your database in this file
 ```
 define('DB_NAME', 'expleName'); // the name of the database
@@ -145,7 +146,8 @@ It allows you to automatically make the require_once as soon as the namespaces a
 => style.css : file that use for design and decorate the the appearance our blog  
 #### js folder :  
 => script.js : file that use for help to manage the front  
-=> jquery.js : file jQuery is a free JavaScript library to facilitate the writing of client-side scripts in the HTML code of web pages.  
+=> jquery.js : file jQuery is a free JavaScript library to facilitate the writing of client-side scripts in the HTML code of web pages. 
+#### config.php : Contains all the elements to connect to the database, the key sent to a user to register on the blog.   
 #### index.php : is an importante file for our application, it's a dispatcher, it's the front controller  
 #### notFound.php : file dedicated to the 404 error  
 ----------------------------------------------------------------------------------------------------------
