@@ -42,18 +42,22 @@
                                                 <form name="updateUser" method="post" action="/OCR_Blog_P5/public/index.php?page=admin&action=updateInfosUser" onsubmit="alert('Vos données ont bien été modifiées.'); return true;">
                                                     <div class="mb-3 mt-4">    
                                                         <label for="InputlastName" class="form-label">Nom</label>
+                                                        <legend style="font-size: 12px"><i>*utiliser que des lettres et/ou des chiffres</i></legend> 
                                                         <input class="form-control" name="newLastName" type="text"  pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="<?= $value->lastName; ?>" list="names_pattern3_datalist"/>
                                                     </div>
                                                     <div class="mb-3">    
                                                         <label for="InputlastName" class="form-label">Prénom</label>
+                                                        <legend style="font-size: 12px"><i>*utiliser que des lettres et/ou des chiffres</i></legend> 
                                                         <input class="form-control" name="newfirstName" type="text"  pattern="^[a-zA-ZÀ-ÿ-z0-9_]{1,15}$" value="<?= $value->firstName; ?>" list="names_pattern3_datalist"/>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="Inputemail" class="form-label">email address</label>
+                                                        <legend style="font-size: 12px"><i>*écrire au format : username@ndd.domain</i></legend>
                                                         <input type="email" class="form-control" name="newEmail"aria-describedby="emailHelp" value="<?= $value->email; ?>">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="InputPassword" class="form-label">Entrer votre Password actuel si vous voulez le concerver ou entrer un nouveau Password</label>
+                                                        <label for="InputPassword" class="form-label">Entrer le Password actuel si vous voulez le concerver ou entrer un nouveau Password</label>
+                                                        <legend style="font-size: 12px"><i>*Au minimum : 8 caractères, un caractère spécial, une majuscule, un chiffre</i></legend>
                                                         <input type="password" class="form-control"  name="newPassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" value="" list="passwords_pattern1_datalist">
                                                     </div>
                                                     <button type="submit" id="submitButton" class="btn btn-light mt-3" name="submit" value="modifier">CHANGE</button>

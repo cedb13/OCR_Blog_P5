@@ -152,27 +152,30 @@ foreach($post as $value)
                         <!-- * * * * * * * * * * * * * * *-->
                             <form id="commentForm" method="post" action="/OCR_Blog_P5/public/index.php?page=post&action=registerComment" onsubmit="alert('Votre commentaire a bien été envoyer, nous allons le traiter.'); return true;">
                                 <div class="form-floating">
-                                    <input type="hidden" class="form-control" name="idPost" type="text" required="required" pattern="^{1,15}$" value="<?= $value->idPost; ?>" list="names_pattern3_datalist" />
+                                    <input type="hidden" class="form-control" name="idPost" required="required" value="<?= $value->idPost; ?>"/>
                                 </div>
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*utiliser que des lettres et/ou des chiffres</i></legend> 
                                     <input class="form-control" id="lastName" name="lastName" type="text" placeholder="Entrer votre nom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
-                                    <label for="name">Nom</label>
+                                    <label for="lastName">Nom</label>
                                 </div>
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*utiliser que des lettres et/ou des chiffres</i></legend> 
                                     <input class="form-control" id="firstName" name="firstName" type="text" placeholder="Entrer votre prénom..." required="required" pattern="^[A-Za-z0-9_]{1,15}$" value="" list="names_pattern3_datalist" />
-                                    <label for="name">Prénom</label>
+                                    <label for="firstName">Prénom</label>
                                 </div>
                                 <div class="form-floating">
+                                    <legend style="font-size: 12px"><i>*écrire au format : username@ndd.domain</i></legend>
                                     <input class="form-control" id="email" name="email" type="email" placeholder="Entrer votre email..." value="" required />
                                     <label for="email">email</label>
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="title" name="title" type="title" placeholder="Entrer un titre..." required="required"  value="" maxlength="80" />
-                                    <label for="name">Titre</label>
+                                    <label for="title">Titre</label>
                                 </div>
                                 <div class="form-floating">
                                     <textarea class="form-control" id="contentComment" name="contentComment" type="textarea" placeholder="Entrer votre message ici..." style="height: 12rem" required="required" spellcheck maxlength="600"></textarea>
-                                    <label for="message">Commentaire</label>
+                                    <label for="contentComment">Commentaire</label>
                                 </div>
                                 <br />
                                 <!-- Submit Button-->
