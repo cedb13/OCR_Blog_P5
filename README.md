@@ -99,7 +99,7 @@ https://documentation.mailjet.com/hc/fr/articles/360042908593-Guide-de-d%C3%A9ma
 ### In App folder we find :
 #### Controllers folder : Party controllers of our application
 - Controller.php : Main/parent controller
-- HommeController.php : Child controller that contains the logic to manage the interactions on the home page of our blog
+- HomeController.php : Child controller that contains the logic to manage the interactions on the home page of our blog
 - LoginController.php : Child controller that contains the logic to handle login and logout interactions of user-administrators.
 - AdminController.php : Child controller that manages the administration page that allows users to update their personal information, access pages where they can edit, update, delete or create articles and validate or delete comments.
 - PostController.php  : Child controller that manages the post list page and the single post pages allowing CRUD for articles and comments.  
